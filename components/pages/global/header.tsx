@@ -1,11 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useLenis } from "lenis/react";
 import Image from "next/image";
 
 function Header() {
-  const lenis = useLenis();
-
   return (
     <header className="main-padding flex items-center justify-between py-2">
       <div className="w-48 relative h-18">
@@ -13,31 +10,36 @@ function Header() {
       </div>
 
       <nav>
-        <ul className="flex space-x-4">
+        <ul className="flex space-x-8 lg:space-x-16">
           <li>
-            <a href="/" className="hover:underline">
-              Home
+            <a href="/" className="font-medium">
+              About Us
             </a>
           </li>
           <li>
-            <a href="/about" className="hover:underline">
-              About
+            <a href="/about" className="font-medium">
+              Products
             </a>
           </li>
           <li>
-            <a href="/services" className="hover:underline">
-              Services
+            <a href="/services" className="font-medium">
+              Investors
             </a>
           </li>
           <li>
-            <a href="/contact" className="hover:underline">
-              Contact
+            <a href="/contact" className="font-medium">
+              Resources
+            </a>
+          </li>
+          <li>
+            <a href="/contact" className="font-medium">
+              Careers
             </a>
           </li>
         </ul>
       </nav>
 
-      <Button>Get Started</Button>
+      <Button>CONTACT US</Button>
     </header>
   );
 }
