@@ -6,11 +6,11 @@ function Header() {
   return (
     <header className="main-padding flex items-center justify-between py-2">
       <div className="w-48 relative h-18">
-        <Image src="/logo.svg" alt="EvonMedics' Official Logo" layout="fill" />
+        <Image src="/logo.svg" alt="EvonMedics' Official Logo" fill />
       </div>
 
       <nav>
-        <ul className="flex space-x-8 lg:space-x-16">
+        <ul className="flex space-x-8 lg:space-x-16 text-white">
           <li>
             <a href="/" className="font-medium">
               About Us
@@ -39,7 +39,7 @@ function Header() {
         </ul>
       </nav>
 
-      <Button>CONTACT US</Button>
+      <Button size={"lg"}>CONTACT US</Button>
     </header>
   );
 }
