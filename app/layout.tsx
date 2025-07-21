@@ -1,55 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const UberMove = localFont({
-  src: [
-    {
-      path: "../public/fonts/UberMove-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/UberMove-Bold.woff",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/UberMove-Medium.woff",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/UberMove-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/UberMove-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/UberMove-Regular.woff",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/UberMove-Light.woff2",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/UberMove-Light.woff",
-      weight: "300",
-      style: "normal",
-    },
-  ],
-  variable: "--font-uber-move",
-  display: "swap",
-  preload: true,
-  fallback: ["system-ui", "sans-serif"],
-});
+import { UberMove } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",

@@ -39,7 +39,9 @@ function Header() {
         </ul>
       </nav>
 
-      <Button size={"lg"}>CONTACT US</Button>
+      <Button size={"lg"} className="bg-blue-500 hover:bg-blue-600">
+        CONTACT US
+      </Button>
     </header>
   );
 }

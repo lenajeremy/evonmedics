@@ -124,3 +124,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .top-heading {
+    @apply text-5xl font-bold tracking-tight text-white leading-14;
+  }
+
+  .subtitle {
+    @apply text-xl text-white/75 font-medium leading-9;
+  }
+
+  .cursor {
+    position: fixed;
+    z-index: 999;
+    width: 24px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    pointer-events: none;
+    backdrop-filter: blur(8px);
+    background-color: white;
+  }
+}
