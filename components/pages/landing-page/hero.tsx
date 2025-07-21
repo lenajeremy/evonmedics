@@ -1,4 +1,4 @@
-"use server";
+"use client";
 import * as React from "react";
 
 import {
@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Fade, { FadeType } from "embla-carousel-fade";
 
 const carouselItems = [
   {
@@ -36,9 +37,15 @@ const carouselItems = [
   },
 ];
 function Hero() {
+  const [plugins, setPlugins] = React.useState<FadeType[]>([]);
+
+  React.useEffect(() => {
+    setPlugins([Fade()]);
+  }, []);
+
   return (
     <div className="relative h-[85vh]">
-      <Carousel>
+      <Carousel opts={{ loop: true }} plugins={plugins} className="h-full">
         <CarouselContent className="h-[85vh]">
           {carouselItems.map((item, index) => (
             <CarouselItem key={index} className="h-full">
@@ -50,7 +57,7 @@ function Hero() {
                   fill
                   className="object-cover object-bottom"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/80 to-transparent" />
                 <div className="absolute inset-0 main-padding mx-auto pt-64">
                   <div className="w-[45%] flex flex-col gap-4">
                     <p className="top-heading">{item.title}</p>
@@ -69,10 +76,12 @@ function Hero() {
         </CarouselContent>
       </Carousel>
 
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4 bg-white">
-        {Array.from({ length: carouselItems.length }).map((_, index) => (
-          <CarouselSection key={index} />
-        ))}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 main-padding w-full">
+        <div className="flex space-x-4 w-full px-6 py-4">
+          {Array.from({ length: carouselItems.length }).map((_, index) => (
+            <CarouselSection active={index === 0} key={index} />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -80,7 +89,7 @@ function Hero() {
 
 function CarouselSection({ active }: { active: boolean }) {
   return (
-    <div className="flex">
+    <div className="flex border-t-2 border-blue-500 py-4">
       <p>01</p>
       <p>Innovation beyond understanding everything was possible, clients.</p>
     </div>
