@@ -144,4 +144,8 @@
     backdrop-filter: blur(8px);
     background-color: white;
   }
+
+  * {
+    font-family: var(--font-uber-move), sans-serif;
+  }
 }

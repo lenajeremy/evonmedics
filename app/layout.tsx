@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { UberMove } from "@/lib/fonts";
+import { UberMove, NunitoFont } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${UberMove.className} antialiased`}>{children}</body>
+      <body className={`${UberMove.className} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

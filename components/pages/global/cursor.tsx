@@ -38,13 +38,13 @@ export default function Cursor() {
         const targetCenterY =
           targetBoundingRect.top + targetBoundingRect.height / 2;
 
-        if (target.tagName === "BUTTON") {
-          lastButtonRef.current = target as HTMLButtonElement;
-          gsap.to(lastButtonRef.current, {
-            x: (e.clientX - targetCenterX) / 3,
-            y: (e.clientY - targetCenterY) / 3,
-          });
-        }
+        // if (target.tagName === "BUTTON") {
+        //   lastButtonRef.current = target as HTMLButtonElement;
+        //   gsap.to(lastButtonRef.current, {
+        //     x: (e.clientX - targetCenterX) / 3,
+        //     y: (e.clientY - targetCenterY) / 3,
+        //   });
+        // }
       } else {
         gsap.to(cursorRef.current, {
           scale: 1,

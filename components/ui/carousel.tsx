@@ -19,6 +19,8 @@ type CarouselProps = {
   plugins?: CarouselPlugin;
   orientation?: "horizontal" | "vertical";
   setApi?: (api: CarouselApi) => void;
+  index?: number;
+  onChangeIndex?: (index: number) => void;
 };
 
 type CarouselContextProps = {
@@ -49,6 +51,8 @@ function Carousel({
   plugins,
   className,
   children,
+  index,
+  onChangeIndex,
   ...props
 }: React.ComponentProps<"div"> & CarouselProps) {
   const [carouselRef, api] = useEmblaCarousel(
@@ -69,11 +73,17 @@ function Carousel({
 
   const scrollPrev = React.useCallback(() => {
     api?.scrollPrev();
-  }, [api]);
+    if (onChangeIndex && api) {
+      onChangeIndex(api.selectedScrollSnap());
+    }
+  }, [api, onChangeIndex]);
 
   const scrollNext = React.useCallback(() => {
     api?.scrollNext();
-  }, [api]);
+    if (onChangeIndex && api) {
+      onChangeIndex(api.selectedScrollSnap());
+    }
+  }, [api, onChangeIndex]);
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {

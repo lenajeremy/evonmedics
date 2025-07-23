@@ -35,17 +35,36 @@ const carouselItems = [
     buttonLink: "/services",
     buttonText: "Discover Services",
   },
+  {
+    image: "hero5.jpg",
+    title: "Empowering healthcare professionals with advanced tools",
+    subtitle:
+      "Equipping healthcare providers with innovative solutions to enhance patient care and outcomes.",
+    buttonLink: "/investors",
+    buttonText: "Join Us",
+  },
 ];
 function Hero() {
   const [plugins, setPlugins] = React.useState<FadeType[]>([]);
 
   React.useEffect(() => {
     setPlugins([Fade()]);
+    return () => {
+      setPlugins([]);
+    };
   }, []);
 
+  const [index, setIndex] = React.useState(0);
+
   return (
-    <div className="relative h-[85vh]">
-      <Carousel opts={{ loop: true }} plugins={plugins} className="h-full">
+    <div className="relative h-[85vh] bg-black">
+      <Carousel
+        opts={{ loop: true }}
+        plugins={plugins}
+        className="h-full"
+        index={index}
+        onChangeIndex={setIndex}
+      >
         <CarouselContent className="h-[85vh]">
           {carouselItems.map((item, index) => (
             <CarouselItem key={index} className="h-full">
@@ -55,9 +74,9 @@ function Hero() {
                   alt={`Hero Image ${index + 1}`}
                   quality={100}
                   fill
-                  className="object-cover object-bottom"
+                  className="object-cover object-bottom pointer-events-none"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/80 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 to-black/40" />
                 <div className="absolute inset-0 main-padding mx-auto pt-64">
                   <div className="w-[45%] flex flex-col gap-4">
                     <p className="top-heading">{item.title}</p>
@@ -77,9 +96,9 @@ function Hero() {
       </Carousel>
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 main-padding w-full">
-        <div className="flex space-x-4 w-full px-6 py-4">
-          {Array.from({ length: carouselItems.length }).map((_, index) => (
-            <CarouselSection active={index === 0} key={index} />
+        <div className="flex space-x-8 w-full py-4">
+          {Array.from(carouselItems.keys()).map((i) => (
+            <CarouselSection active={i === index} key={i} index={i + 1} />
           ))}
         </div>
       </div>
@@ -87,12 +106,28 @@ function Hero() {
   );
 }
 
-function CarouselSection({ active }: { active: boolean }) {
+function CarouselSection({
+  active,
+  index,
+}: {
+  active: boolean;
+  index: number;
+}) {
   return (
-    <div className="flex border-t-2 border-blue-500 py-4">
-      <p>01</p>
-      <p>Innovation beyond understanding everything was possible, clients.</p>
-    </div>
+    <button
+      role="link"
+      className={`flex border-t-3 text-white ${
+        active ? "border-blue-500" : "border-[#A1A1A1] opacity-45"
+      } py-3 px-3 gap-3`}
+    >
+      <p className="font-semibold text-lg">
+        {index.toString().padStart(2, "0")}
+      </p>
+      <p className="pointer-events-none text-left font-[var(--font-nunito-sans)]">
+        Enhancing everyday experiences to the quality of life and mental
+        wellbeing for individuals.
+      </p>
+    </button>
   );
 }
 export default Hero;
