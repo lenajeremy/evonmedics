@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+* {
+  font-family: var(--font-uber-move), sans-serif;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -144,8 +147,27 @@
     backdrop-filter: blur(8px);
     background-color: white;
   }
+}
 
-  * {
-    font-family: var(--font-uber-move), sans-serif;
+.carousel-progress-indicator {
+  animation-name: autoplay-progress;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-play-state: paused;
+}
+
+.carousel-progress.active .carousel-progress-indicator {
+  animation-play-state: running;
+  animation-fill-mode: initial;
+  animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+@keyframes autoplay-progress {
+  0% {
+    width: 0;
+  }
+  
+  100% {
+    width: 100%;
   }
 }

@@ -85,6 +85,12 @@ function Carousel({
     }
   }, [api, onChangeIndex]);
 
+  api?.on("autoplay:select", (e) => {
+    if (onChangeIndex && api) {
+      onChangeIndex(api.selectedScrollSnap());
+    }
+  });
+
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
       if (event.key === "ArrowLeft") {
@@ -113,6 +119,13 @@ function Carousel({
       api?.off("select", onSelect);
     };
   }, [api, onSelect]);
+
+  React.useEffect(() => {
+    if (index !== undefined && api) {
+      api.scrollTo(index);
+      onChangeIndex?.(index);
+    }
+  }, [index, api, onChangeIndex]);
 
   return (
     <CarouselContext.Provider
@@ -248,4 +261,5 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  useCarousel,
 };
