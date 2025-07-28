@@ -1,6 +1,6 @@
 import SmoothScroll from "@/components/smooth-scroll";
 import { Cursor, Header } from "@/components/pages/global";
-import { Hero } from "@/components/pages/landing-page";
+import { Hero, Mission } from "@/components/pages/landing-page";
 
 export default function Home() {
   return (
@@ -11,12 +11,7 @@ export default function Home() {
           <Header />
         </div>
         <Hero />
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-          consequatur repudiandae libero asperiores veritatis, ipsa,
-          voluptatibus mollitia earum tempora est consectetur corporis sapiente,
-          temporibus eligendi dolore. Consectetur tenetur eligendi possimus.
-        </p>
+        <Mission />
       </div>
 
       <main className="main-padding">

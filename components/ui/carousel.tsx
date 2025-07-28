@@ -85,11 +85,21 @@ function Carousel({
     }
   }, [api, onChangeIndex]);
 
-  api?.on("autoplay:select", (e) => {
-    if (onChangeIndex && api) {
-      onChangeIndex(api.selectedScrollSnap());
-    }
-  });
+  React.useEffect(() => {
+    if (!api) return;
+
+    const handleAutoplaySelect = () => {
+      if (onChangeIndex) {
+        onChangeIndex(api.selectedScrollSnap());
+      }
+    };
+
+    api.on("autoplay:select", handleAutoplaySelect);
+
+    return () => {
+      api.off("autoplay:select", handleAutoplaySelect);
+    };
+  }, [api, onChangeIndex]);
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {

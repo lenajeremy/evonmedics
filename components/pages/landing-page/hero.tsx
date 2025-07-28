@@ -60,7 +60,7 @@ function Hero() {
   const [index, setIndex] = React.useState(0);
 
   return (
-    <div className="relative h-[85vh] bg-black">
+    <div className="relative h-screen bg-black">
       <Carousel
         opts={{ loop: true }}
         plugins={plugins}
@@ -68,7 +68,7 @@ function Hero() {
         index={index}
         onChangeIndex={setIndex}
       >
-        <CarouselContent className="h-[85vh]">
+        <CarouselContent className="h-screen">
           {carouselItems.map((item, index) => (
             <CarouselItem key={index} className="h-full">
               <div className="relative h-full w-full">
@@ -80,7 +80,7 @@ function Hero() {
                   className="object-cover object-bottom pointer-events-none"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 to-black/40" />
-                <div className="absolute inset-0 main-padding mx-auto pt-[25vh]">
+                <div className="absolute inset-0 main-padding mx-auto pt-[28vh]">
                   <div className="w-[45%] flex flex-col gap-4">
                     <p className="top-heading">{item.title}</p>
                     <p className="w-4/5 subtitle body-font">{item.subtitle}</p>
@@ -116,7 +116,10 @@ function Hero() {
               size="icon"
               className="bg-transparent hover:bg-transparent border-none scale-150 shadow-none"
               onClick={() =>
-                setIndex((prev) => (prev - 1) % carouselItems.length)
+                setIndex(
+                  (prev) =>
+                    (prev - 1 + carouselItems.length) % carouselItems.length
+                )
               }
             >
               <svg

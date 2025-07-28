@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function Header() {
   return (
-    <header className="main-padding flex items-center justify-between py-2">
+    <header className="main-padding flex items-center justify-between py-4">
       <div className="w-48 relative h-18">
         <Image src="/logo.svg" alt="EvonMedics' Official Logo" fill />
       </div>
