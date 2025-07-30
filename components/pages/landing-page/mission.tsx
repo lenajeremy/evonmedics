@@ -162,7 +162,7 @@ function Mission() {
   }, []);
 
   return (
-    <section ref={containerRef} className="main-padding py-32 relative">
+    <section ref={containerRef} className="main-padding py-16 relative">
       <div className="absolute left-24 top-12 z-[-1] opacity-40">
         <Image
           src={"/images/image 28.png"}
@@ -171,12 +171,12 @@ function Mission() {
           height={600}
         />
       </div>
-      <div className="flex gap-32 items-center">
+      <div className="flex gap-24 items-center">
         <div className="flex flex-col gap-12 flex-[1.2] items-start">
           <Tag text="MISSION" />
           <h1
             ref={headingRef as React.RefObject<HTMLHeadingElement>}
-            className={`text-[3.5rem] tracking-tight leading-[1.3] font-medium pr-10 ${SFPro.className}`}
+            className={`text-[3.5rem] tracking-tight leading-[1.3] font-semibold pr-10 ${SFPro.className}`}
           >
             <span>Helping</span>{" "}
             <span className="text-[#4D7FFF]">millions</span> <span>to</span>{" "}
@@ -222,9 +222,9 @@ function Mission() {
             ref={imageRef}
             src={"/images/hero2.jpg"}
             alt="hellooooo"
-            width={500}
-            height={500}
-            className="w-full h-[600px] object-cover rounded-3xl"
+            width={700}
+            height={700}
+            className="h-[700px] w-[600px] object-cover rounded-3xl"
             priority
           />
         </div>

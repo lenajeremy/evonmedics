@@ -1,10 +1,13 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { UberMove } from "@/lib/fonts";
 import Image from "next/image";
 
 function Header() {
   return (
-    <header className="main-padding flex items-center justify-between py-4">
+    <header
+      className={`main-padding flex items-center justify-between py-4 ${UberMove.className}`}
+    >
       <div className="w-48 relative h-18">
         <Image src="/logo.svg" alt="EvonMedics' Official Logo" fill />
       </div>
@@ -39,9 +42,7 @@ function Header() {
         </ul>
       </nav>
 
-      <Button size={"lg"} className="bg-blue-500 hover:bg-blue-600">
-        CONTACT US
-      </Button>
+      <Button className="bg-blue-500 hover:bg-blue-600">CONTACT US</Button>
     </header>
   );
 }

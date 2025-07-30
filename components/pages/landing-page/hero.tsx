@@ -11,6 +11,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Fade, { FadeType } from "embla-carousel-fade";
 import Autoplay from "embla-carousel-autoplay";
+import { UberMove } from "@/lib/fonts";
 
 const carouselItems = [
   {
@@ -79,7 +80,7 @@ function Hero() {
                   fill
                   className="object-cover object-bottom pointer-events-none"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 to-black/40" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black to-black/40" />
                 <div className="absolute inset-0 main-padding mx-auto pt-[28vh]">
                   <div className="w-[45%] flex flex-col gap-4">
                     <p className="top-heading">{item.title}</p>
@@ -176,7 +177,7 @@ function CarouselSection({
     <button
       onClick={() => setIndex(index - 1)}
       role="button"
-      className={`flex py-3 pt-5 px-3 gap-3 relative text-white ${
+      className={`flex py-3 pt-5 px-3 gap-3 relative text-white ${UberMove.className} ${
         active ? "opacity-100" : "opacity-45"
       }`}
     >

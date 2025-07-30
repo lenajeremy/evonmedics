@@ -5,167 +5,113 @@ import Image from "next/image";
 import { Tag } from "@/components/pages/global";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { UberMove } from "@/lib/fonts";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ListItem = ({ children, isFirst = false }: { children: React.ReactNode; isFirst?: boolean }) => (
-  <div className="relative flex items-center group">
-    <div className="w-2 h-2 rounded-full bg-[#4D7FFF] mr-3" />
-    <span className={`text-xl ${isFirst ? "text-[#4D7FFF] group-hover:translate-x-2" : ""} transition-transform`}>
-      {children}
+const ListItem = ({
+  isLast = false,
+  index,
+  text,
+}: {
+  isLast?: boolean;
+  index: number;
+  text: string;
+}) => (
+  <Link
+    href="/"
+    className={`relative group flex w-full items-center group py-6 px-4 border-t-[1.5]  border-t-[#E3E3E3] ${
+      isLast && "border-t-0"
+    }`}
+  >
+    <span className={`${UberMove.className} font-bold`}>
+      {index.toString().padStart(2, "0")}
     </span>
-    {isFirst && (
-      <svg
-        className="ml-2 w-6 h-6 text-[#4D7FFF] group-hover:translate-x-2 transition-transform"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M5 12H19M19 12L12 5M19 12L12 19"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    )}
-  </div>
+    <span className={`flex-1 text-3xl font-normal tracking-tight`}>{text}</span>
+    <svg
+      width="64"
+      height="65"
+      viewBox="0 0 64 65"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+    >
+      <rect
+        width="64"
+        height="64"
+        transform="translate(0 0.452393)"
+        fill="#507FFF"
+      />
+      <path
+        d="M17.9393 44.4393C17.3536 45.0251 17.3536 45.9749 17.9393 46.5607C18.5251 47.1464 19.4749 47.1464 20.0607 46.5607L17.9393 44.4393ZM46.5 19.5C46.5 18.6716 45.8284 18 45 18L31.5 18C30.6716 18 30 18.6716 30 19.5C30 20.3284 30.6716 21 31.5 21H43.5V33C43.5 33.8284 44.1716 34.5 45 34.5C45.8284 34.5 46.5 33.8284 46.5 33L46.5 19.5ZM20.0607 46.5607L46.0607 20.5607L43.9393 18.4393L17.9393 44.4393L20.0607 46.5607Z"
+        fill="white"
+      />
+    </svg>
+  </Link>
 );
 
 export default function ProductAndServices() {
-  const containerRef = useRef<HTMLElement>(null);
-  const textRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const ctx = gsap.context(() => {
-      // Products section animation
-      const tl1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 60%",
-          end: "bottom 60%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      // Initial states
-      textRefs.current.forEach((el) => {
-        if (el) {
-          gsap.set(el, {
-            opacity: 0,
-            y: 50,
-            filter: "blur(10px) brightness(1.5)",
-          });
-        }
-      });
-
-      imageRefs.current.forEach((el) => {
-        if (el) {
-          gsap.set(el, {
-            opacity: 0,
-            y: 100,
-          });
-        }
-      });
-
-      // Animate elements
-      textRefs.current.forEach((el, index) => {
-        if (el) {
-          tl1.to(
-            el,
-            {
-              opacity: 1,
-              y: 0,
-              filter: "blur(0px) brightness(1)",
-              duration: 1.2,
-              ease: "power3.out",
-            },
-            index * 0.2
-          );
-        }
-      });
-
-      imageRefs.current.forEach((el, index) => {
-        if (el) {
-          tl1.to(
-            el,
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1.2,
-              ease: "power3.out",
-            },
-            0.3
-          );
-        }
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={containerRef} className="main-padding py-32">
-      {/* Products Section */}
+    <section className="main-padding flex flex-col gap-16">
       <div className="flex flex-col gap-32">
-        <div className="flex gap-32">
+        <div className="flex gap-32 items-center">
           <div className="flex-1">
             <Image
-              ref={(el: HTMLImageElement | null) => { imageRefs.current[0] = el }}
-              src="/images/hero2.jpg"
-              alt="Senior patient with chronic pain"
-              width={600}
-              height={600}
-              className="w-full h-[600px] object-cover rounded-3xl"
-              priority
+              src={"/images/granny.png"}
+              alt="White Grandma"
+              width={700}
+              height={700}
+              className="h-[700px] w-[600px] object-cover"
             />
           </div>
-          <div className="flex flex-col gap-8 flex-[1.2]" ref={(el: HTMLDivElement | null) => { textRefs.current[0] = el }}>
+          <div className="flex flex-col gap-8 flex-[1.2] items-start">
             <Tag text="OUR PRODUCTS" />
-            <div className="space-y-6">
-              <p className="text-xl">
-                Passionate about <span className="text-[#4D7FFF]">innovation</span>, we constantly strive to create new products incorporating{" "}
-                <span className="text-[#4D7FFF]">cutting-edge</span> technologies to provide cure for:
+            <div className="space-y-16 pr-16">
+              <p className="text-4xl font-medium leading-12 tracking-tight">
+                Passionate about{" "}
+                <span className="text-[#4D7FFF]">innovation</span>, we
+                constantly strive to create new products incorporating{" "}
+                <span className="text-[#4D7FFF]">cutting-edge</span>{" "}
+                technologies to provide cure for:
               </p>
-              <div className="space-y-6">
-                <ListItem isFirst>Alzheimers</ListItem>
-                <ListItem>Chronic Pain</ListItem>
-                <ListItem>Addiction Treatment</ListItem>
+              <div>
+                <ListItem index={1} text="Alzheimers" />
+                <ListItem index={2} text="Chronic Pain" />
+                <ListItem index={3} isLast text="Addiction Treatment" />
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Services Section */}
-        <div className="flex gap-32">
-          <div className="flex flex-col gap-8 flex-[1.2]" ref={(el: HTMLDivElement | null) => { textRefs.current[1] = el }}>
-            <Tag text="OUR SERVICES" />
-            <div className="space-y-6">
-              <p className="text-xl">
-                Passionate about <span className="text-[#4D7FFF]">innovation</span>, we constantly strive to create new products incorporating{" "}
-                <span className="text-[#4D7FFF]">cutting-edge</span> technologies.
-              </p>
-              <div className="space-y-6">
-                <ListItem isFirst>Innovation</ListItem>
-                <ListItem>Products</ListItem>
-                <ListItem>Therapeutics</ListItem>
-              </div>
-            </div>
-          </div>
+      <div className="flex flex-col gap-32">
+        <div className="flex gap-32 items-center flex-row-reverse">
           <div className="flex-1">
             <Image
-              ref={(el: HTMLImageElement | null) => { imageRefs.current[1] = el }}
-              src="/images/hero3.jpg"
-              alt="Baby receiving care"
-              width={600}
-              height={600}
-              className="w-full h-[600px] object-cover rounded-3xl"
-              priority
+              src={"/images/granny.png"}
+              alt="White Grandma"
+              width={700}
+              height={700}
+              className="h-[700px] w-[600px] object-cover"
             />
+          </div>
+          <div className="flex flex-col gap-8 flex-[1.2] items-start">
+            <Tag text="OUR PRODUCTS" />
+            <div className="space-y-16 pr-16">
+              <p className="text-4xl font-medium leading-12 tracking-tight">
+                Passionate about{" "}
+                <span className="text-[#4D7FFF]">innovation</span>, we
+                constantly strive to create new products incorporating{" "}
+                <span className="text-[#4D7FFF]">cutting-edge</span>{" "}
+                technologies to provide cure for:
+              </p>
+              <div>
+                <ListItem index={1} text="Alzheimers" />
+                <ListItem index={2} text="Chronic Pain" />
+                <ListItem index={3} isLast text="Addiction Treatment" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

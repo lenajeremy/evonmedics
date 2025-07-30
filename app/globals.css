@@ -1,8 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-* {
-  font-family: var(--font-sf-pro-display), sans-serif;
-}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -135,6 +132,7 @@
 
   .subtitle {
     @apply text-xl text-white/75 font-medium leading-9;
+    font-family: "Uber Move", sans-serif;
   }
 
   .cursor {
