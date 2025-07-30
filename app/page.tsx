@@ -1,6 +1,10 @@
 import SmoothScroll from "@/components/smooth-scroll";
 import { Cursor, Header } from "@/components/pages/global";
-import { Hero, Mission } from "@/components/pages/landing-page";
+import {
+  Hero,
+  Mission,
+  ProductsAndServices,
+} from "@/components/pages/landing-page";
 
 export default function Home() {
   return (
@@ -12,6 +16,7 @@ export default function Home() {
         </div>
         <Hero />
         <Mission />
+        <ProductsAndServices />
       </div>
 
       <main className="main-padding">

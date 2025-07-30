@@ -6,6 +6,7 @@ import { Tag } from "@/components/pages/global";
 import { Button } from "@/components/ui/button";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { SFPro } from "@/lib/fonts";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,21 +25,20 @@ function Mission() {
     const button = buttonRef.current;
     const arrow = arrowRef.current;
 
-
     gsap.set(arrow, { x: 0, y: 0, rotate: 0, opacity: 1, scale: 1 });
 
     // Create hover animation
-    const flyAwayAnimation = gsap.timeline({ paused: true })
-      .to(arrow, {
-        x: 60,
-        y: -10,
-        scale: 3,
-        rotate: 0,
-        duration: 0.3,
-        ease: "power2.out"
-      })
+    const flyAwayAnimation = gsap.timeline({ paused: true }).to(arrow, {
+      x: 60,
+      y: -10,
+      scale: 3,
+      rotate: 0,
+      duration: 0.3,
+      ease: "power2.out",
+    });
 
-    const returnAnimation = gsap.timeline({ paused: true })
+    const returnAnimation = gsap
+      .timeline({ paused: true })
       .set(arrow, {
         x: -140,
         y: -30,
@@ -53,7 +53,7 @@ function Mission() {
         rotate: 0,
         opacity: 1,
         duration: 0.5,
-        ease: "power2.out"
+        ease: "power2.out",
       });
 
     const handleEnter = () => {
@@ -62,18 +62,19 @@ function Mission() {
     };
 
     const handleLeave = () => {
-      if (flyAwayAnimation.progress() === 1) {  // Only return if fly away is complete
+      if (flyAwayAnimation.progress() === 1) {
+        // Only return if fly away is complete
         returnAnimation.restart();
       }
     };
 
     // Add event listeners
-    button.addEventListener('mouseenter', handleEnter);
-    button.addEventListener('mouseleave', handleLeave);
+    button.addEventListener("mouseenter", handleEnter);
+    button.addEventListener("mouseleave", handleLeave);
 
     return () => {
-      button.removeEventListener('mouseenter', handleEnter);
-      button.removeEventListener('mouseleave', handleLeave);
+      button.removeEventListener("mouseenter", handleEnter);
+      button.removeEventListener("mouseleave", handleLeave);
     };
   }, []);
 
@@ -105,10 +106,10 @@ function Mission() {
       gsap.set([...words, ...blueWords], {
         opacity: 0,
         y: 150,
-        filter: "blur(20px) brightness(2)",
+        filter: "blur(5px) brightness(2)",
       });
       gsap.set(image, { opacity: 0, y: 100 });
-      gsap.set(buttonWrapperRef.current, { 
+      gsap.set(buttonWrapperRef.current, {
         opacity: 0,
       });
 
@@ -162,12 +163,20 @@ function Mission() {
 
   return (
     <section ref={containerRef} className="main-padding py-32 relative">
-      <div className="flex gap-32">
-        <div className="flex flex-col gap-8 flex-[1.2] items-start">
+      <div className="absolute left-24 top-12 z-[-1] opacity-40">
+        <Image
+          src={"/images/image 28.png"}
+          alt="background"
+          width={600}
+          height={600}
+        />
+      </div>
+      <div className="flex gap-32 items-center">
+        <div className="flex flex-col gap-12 flex-[1.2] items-start">
           <Tag text="MISSION" />
           <h1
             ref={headingRef as React.RefObject<HTMLHeadingElement>}
-            className="text-[3.5rem] tracking-tight leading-[1.2] font-medium"
+            className={`text-[3.5rem] tracking-tight leading-[1.3] font-medium pr-10 ${SFPro.className}`}
           >
             <span>Helping</span>{" "}
             <span className="text-[#4D7FFF]">millions</span> <span>to</span>{" "}
@@ -186,25 +195,25 @@ function Mission() {
             >
               <span className="mr-2">Read More</span>
               <span className="inline-block">
-                <svg 
-                ref={arrowRef}
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                className="inline-block"
-              >
-                <path 
-                  d="M5 12H19M19 12L12 5M19 12L12 19" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </Button>
+                <svg
+                  ref={arrowRef}
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="inline-block"
+                >
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </Button>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 * {
-  font-family: var(--font-uber-move), sans-serif;
+  font-family: var(--font-sf-pro-display), sans-serif;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -144,8 +144,9 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
     pointer-events: none;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(100px);
     background-color: white;
+    opacity: 50%;
   }
 }
 
@@ -166,7 +167,7 @@
   0% {
     width: 0%;
   }
-  
+
   100% {
     width: 100%;
   }

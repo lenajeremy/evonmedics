@@ -29,7 +29,6 @@ export default function Cursor() {
       if (target.tagName === "BUTTON" || target.tagName === "A") {
         gsap.to(cursorRef.current, {
           scale: 3,
-          opacity: 0.8,
         });
 
         const targetBoundingRect = target?.getBoundingClientRect();
@@ -48,7 +47,6 @@ export default function Cursor() {
       } else {
         gsap.to(cursorRef.current, {
           scale: 1,
-          opacity: 1,
         });
 
         lastButtonRef.current &&

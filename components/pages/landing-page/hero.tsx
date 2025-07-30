@@ -83,7 +83,7 @@ function Hero() {
                 <div className="absolute inset-0 main-padding mx-auto pt-[28vh]">
                   <div className="w-[45%] flex flex-col gap-4">
                     <p className="top-heading">{item.title}</p>
-                    <p className="w-4/5 subtitle body-font">{item.subtitle}</p>
+                    <p className="w-4/5 subtitle">{item.subtitle}</p>
                     <Button
                       size={"lg"}
                       className="bg-blue-500 hover:bg-blue-600 w-fit"
