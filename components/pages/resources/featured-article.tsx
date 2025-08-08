@@ -34,23 +34,21 @@ export default function FeaturedArticle({
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
-      <div className="space-y-8">
-        <span className="text-sm font-medium text-white bg-blue-400 uppercase px-4 py-1.5 rounded-md">
+      <div className="space-y-4">
+        <div className="text-sm w-fit font-medium text-white bg-[#5D82E7] uppercase px-4 py-1.5 rounded-md">
           {category}
-        </span>
+        </div>
         <h1 className="text-[42px] font-bold leading-[1.15] tracking-tight">
           {title}
         </h1>
-        <div className="flex items-center space-x-4 text-[15px] text-gray-500">
-          <span className="text-black text-sm font-semibold uppercase">
-            BY {author.toUpperCase()}
-          </span>
-          <span className="uppercase">
+        <div className="flex flex-col gap-2 text-sm text-black font-semibold uppercase tracking-widest">
+          <p>BY {author}</p>
+          <p className="uppercase">
             <span className="text-gray-600">{date}</span>
-            <span> - {readTime} MIN READ</span>
-          </span>
+            <span> - {readTime} READ</span>
+          </p>
         </div>
-        <p className="text-lg text-gray-600 leading-relaxed line-clamp-3">
+        <p className="text-lg text-gray-600 leading-relaxed line-clamp-3 pt-3 pr-30">
           {excerpt}
         </p>
       </div>

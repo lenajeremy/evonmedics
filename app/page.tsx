@@ -1,10 +1,11 @@
 import SmoothScroll from "@/components/smooth-scroll";
-import VideoDisplay from "@/components/pages/landing-page/video-display";
 import { Header } from "@/components/pages/global";
 import {
+  Careers,
   Hero,
   Mission,
   ProductsAndServices,
+  VideoDisplay,
 } from "@/components/pages/landing-page";
 
 export default function Home() {
@@ -18,12 +19,8 @@ export default function Home() {
         <Mission />
         <ProductsAndServices />
         <VideoDisplay />
+        <Careers />
       </div>
-
-      <main className="main-padding">
-        {/* <h1 className="text-9xl font-bold">Welcome to EvonMedics</h1>
-        <p className="mt-4">Your health, our priority.</p> */}
-      </main>
     </SmoothScroll>
   );
 }

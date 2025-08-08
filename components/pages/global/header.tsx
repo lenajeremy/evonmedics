@@ -174,7 +174,7 @@ function Header({ variant }: HeaderProps) {
             <NavLink href="/services">Investors</NavLink>
           </li>
           <li>
-            <NavLink href="/resources">Resources</NavLink>
+            <NavLink href="/blog">Blog</NavLink>
           </li>
           <li>
             <NavLink href="/contact">Careers</NavLink>

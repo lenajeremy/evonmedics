@@ -128,7 +128,7 @@ function MarqueeLogos() {
 
 export default function VideoDisplay() {
   return (
-    <div className="w-full bg-black flex flex-col items-center justify-center min-h-[60vh] py-24 relative overflow-x-hidden">
+    <div className="w-full bg-black flex flex-col items-center justify-center min-h-[60vh] py-30 relative overflow-x-hidden">
       <div className="max-w-4xl mx-auto text-center px-4">
         <h1 className="text-[44px] md:text-[54px] font-medium leading-tight text-[#D1D5DB]">
           Helping <span className="text-[#4D7FFF] font-bold">millions</span> to
