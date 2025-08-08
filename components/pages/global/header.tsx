@@ -2,42 +2,182 @@
 import { Button } from "@/components/ui/button";
 import { UberMove } from "@/lib/fonts";
 import Image from "next/image";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { SplitText } from "gsap/dist/SplitText";
+import Link from "next/link";
 
-function Header() {
+gsap.registerPlugin(SplitText);
+
+const NavLink = ({ href, children }: { href: string; children: string }) => {
+  const containerRef = useRef<HTMLAnchorElement>(null);
+  const defaultTextRef = useRef<HTMLSpanElement>(null);
+  const hoverTextRef = useRef<HTMLSpanElement>(null);
+  const defaultSplitRef = useRef<any>(null);
+  const hoverSplitRef = useRef<any>(null);
+  const timeline = useRef<gsap.core.Timeline | null>(null);
+
+  const animateText = (isHovered: boolean) => {
+    if (
+      !containerRef.current ||
+      !defaultTextRef.current ||
+      !hoverTextRef.current
+    )
+      return;
+
+    // Kill existing timeline if any
+    if (timeline.current) {
+      timeline.current.kill();
+    }
+
+    // Create new splits if they don't exist
+    if (!defaultSplitRef.current) {
+      defaultSplitRef.current = new SplitText(defaultTextRef.current, {
+        type: "chars",
+        charsClass: "char relative inline-block",
+      });
+    }
+    if (!hoverSplitRef.current) {
+      hoverSplitRef.current = new SplitText(hoverTextRef.current, {
+        type: "chars",
+        charsClass: "char relative inline-block",
+      });
+    }
+
+    const defaultChars = defaultSplitRef.current.chars;
+    const hoverChars = hoverSplitRef.current.chars;
+
+    timeline.current = gsap
+      .timeline()
+      .set(defaultChars, { yPercent: 0, opacity: 1 })
+      .set(hoverChars, { yPercent: 100, opacity: 0 });
+
+    if (isHovered) {
+      timeline.current
+        .to(defaultChars, {
+          yPercent: -100,
+          opacity: 0,
+          duration: 0.4,
+          stagger: 0.02,
+          ease: "power2.inOut",
+        })
+        .to(
+          hoverChars,
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.4,
+            stagger: 0.02,
+            ease: "power2.out",
+          },
+          "<0.1"
+        ); // Slight overlap for smoother transition
+    } else {
+      timeline.current
+        .to(hoverChars, {
+          yPercent: 100,
+          opacity: 0,
+          duration: 0.4,
+          stagger: 0.02,
+          ease: "power2.inOut",
+        })
+        .to(
+          defaultChars,
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.4,
+            stagger: 0.02,
+            ease: "power2.out",
+          },
+          "<0.1"
+        );
+    }
+  };
+
+  const handleMouseEnter = () => {
+    animateText(true);
+  };
+
+  const handleMouseLeave = () => {
+    animateText(false);
+  };
+
+  // Initial setup and cleanup
+  useEffect(() => {
+    return () => {
+      if (defaultSplitRef.current) {
+        defaultSplitRef.current.revert();
+      }
+      if (hoverSplitRef.current) {
+        hoverSplitRef.current.revert();
+      }
+      if (timeline.current) {
+        timeline.current.kill();
+      }
+    };
+  }, []);
+
+  return (
+    <a
+      ref={containerRef}
+      href={href}
+      className="font-medium relative block"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <span className="block overflow-hidden relative">
+        <span ref={defaultTextRef} className="block whitespace-nowrap">
+          {children}
+        </span>
+        <span
+          ref={hoverTextRef}
+          className="block absolute top-0 left-0 whitespace-nowrap"
+        >
+          {children}
+        </span>
+      </span>
+    </a>
+  );
+};
+
+type HeaderProps = {
+  variant?: "default" | "secondary";
+};
+
+function Header({ variant }: HeaderProps) {
   return (
     <header
-      className={`main-padding flex items-center justify-between py-4 ${UberMove.className}`}
+      className={`main-padding flex items-center justify-between py-4 ${
+        UberMove.className
+      } ${variant == "default" ? "border-0" : "border-b-[1.5px]"}`}
     >
-      <div className="w-48 relative h-18">
-        <Image src="/logo.svg" alt="EvonMedics' Official Logo" fill />
-      </div>
+      <Link href="/">
+        <div className="w-48 relative h-14">
+          <Image src="/logo.svg" alt="EvonMedics' Official Logo" fill />
+        </div>
+      </Link>
 
       <nav>
-        <ul className="flex space-x-8 lg:space-x-16 text-white">
+        <ul
+          className={`flex space-x-8 lg:space-x-16 ${
+            variant === "default" ? "text-gray-200" : "text-gray-700"
+          }`}
+        >
           <li>
-            <a href="/" className="font-medium">
-              About Us
-            </a>
+            <NavLink href="/">About Us</NavLink>
           </li>
           <li>
-            <a href="/about" className="font-medium">
-              Products
-            </a>
+            <NavLink href="/about">Products</NavLink>
           </li>
           <li>
-            <a href="/services" className="font-medium">
-              Investors
-            </a>
+            <NavLink href="/services">Investors</NavLink>
           </li>
           <li>
-            <a href="/contact" className="font-medium">
-              Resources
-            </a>
+            <NavLink href="/resources">Resources</NavLink>
           </li>
           <li>
-            <a href="/contact" className="font-medium">
-              Careers
-            </a>
+            <NavLink href="/contact">Careers</NavLink>
           </li>
         </ul>
       </nav>

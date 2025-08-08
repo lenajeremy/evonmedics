@@ -1,23 +1,26 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Tag } from "@/components/pages/global";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { SplitText } from "gsap/dist/SplitText";
 import { UberMove } from "@/lib/fonts";
 import Link from "next/link";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const ListItem = ({
   isLast = false,
   index,
   text,
+  onHover,
 }: {
   isLast?: boolean;
   index: number;
   text: string;
+  onHover?: () => void;
 }) => (
   <Link
     href="/"
@@ -52,8 +55,92 @@ const ListItem = ({
 );
 
 export default function ProductAndServices() {
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const splitTextRef = useRef<any>(null);
+  const [currentText, setCurrentText] = useState("default");
+  const tl = useRef<gsap.core.Timeline | null>(null);
+
+  const textVariants = {
+    default: {
+      text: "Passionate about innovation, we constantly strive to create new products incorporating cutting-edge technologies to provide cure for:",
+      highlights: ["innovation", "cutting-edge"],
+    },
+    alzheimers: {
+      text: "Our innovative neurotechnology targets early-stage Alzheimer's, utilizing cutting-edge brain stimulation to enhance cognitive function.",
+      highlights: ["innovative", "cutting-edge"],
+    },
+    chronicpain: {
+      text: "Advanced pain management solutions combining innovative nerve therapy with cutting-edge sensor technology for precise treatment.",
+      highlights: ["innovative", "cutting-edge"],
+    },
+    addictiontreatment: {
+      text: "Revolutionary addiction treatment using innovative neurofeedback and cutting-edge behavioral modification technologies.",
+      highlights: ["innovative", "cutting-edge"],
+    },
+  };
+
+  const animateText = (text: string) => {
+    if (!textRef.current) return;
+
+    // Kill any existing animation
+    if (tl.current) {
+      tl.current.kill();
+    }
+
+    // Revert any existing split
+    if (splitTextRef.current) {
+      splitTextRef.current.revert();
+    }
+
+    // Create new split
+    splitTextRef.current = new SplitText(textRef.current, {
+      type: "words",
+      // wordsClass: "overflow-hidden",
+      // charsClass: "translate-y-full opacity-0"
+    });
+
+    // Create new timeline
+    tl.current = gsap.timeline().from(splitTextRef.current.words, {
+      y: 100,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4,
+        from: "start",
+      },
+    });
+  };
+
+  // Handle hover events
+  const handleHover = (text: string) => {
+    alert("hover: " + text);
+    setCurrentText(text);
+  };
+
+  // Initial animation and cleanup
+  useEffect(() => {
+    // Initial animation
+    animateText("default");
+
+    // Cleanup
+    return () => {
+      if (splitTextRef.current) {
+        splitTextRef.current.revert();
+      }
+      if (tl.current) {
+        tl.current.kill();
+      }
+    };
+  }, []);
+
+  // Animate on text change
+  useEffect(() => {
+    animateText(currentText);
+  }, [currentText]);
+
   return (
-    <section className="main-padding flex flex-col gap-16">
+    <section className="main-padding flex flex-col gap-16 pb-16">
       <div className="flex flex-col gap-32">
         <div className="flex gap-32 items-center">
           <div className="flex-1">
@@ -68,17 +155,43 @@ export default function ProductAndServices() {
           <div className="flex flex-col gap-8 flex-[1.2] items-start">
             <Tag text="OUR PRODUCTS" />
             <div className="space-y-16 pr-16">
-              <p className="text-4xl font-medium leading-12 tracking-tight">
-                Passionate about{" "}
-                <span className="text-[#4D7FFF]">innovation</span>, we
-                constantly strive to create new products incorporating{" "}
-                <span className="text-[#4D7FFF]">cutting-edge</span>{" "}
-                technologies to provide cure for:
+              <p
+                ref={textRef}
+                className="text-4xl font-medium leading-12 tracking-tight"
+              >
+                {textVariants[currentText as keyof typeof textVariants].text
+                  .split(" ")
+                  .map((word, i, arr) => {
+                    const isHighlighted = textVariants[
+                      currentText as keyof typeof textVariants
+                    ].highlights.includes(word.replace(/[.,:]$/g, ""));
+                    return (
+                      <React.Fragment key={i}>
+                        <span className={isHighlighted ? "text-[#4D7FFF]" : ""}>
+                          {word}
+                        </span>
+                        {i < arr.length - 1 ? " " : ""}
+                      </React.Fragment>
+                    );
+                  })}
               </p>
               <div>
-                <ListItem index={1} text="Alzheimers" />
-                <ListItem index={2} text="Chronic Pain" />
-                <ListItem index={3} isLast text="Addiction Treatment" />
+                <ListItem
+                  index={1}
+                  text="Alzheimers"
+                  onHover={() => handleHover("alzheimers")}
+                />
+                <ListItem
+                  index={2}
+                  text="Chronic Pain"
+                  onHover={() => handleHover("chronicpain")}
+                />
+                <ListItem
+                  index={3}
+                  isLast
+                  text="Addiction Treatment"
+                  onHover={() => handleHover("addictiontreatment")}
+                />
               </div>
             </div>
           </div>

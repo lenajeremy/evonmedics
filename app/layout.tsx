@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { UberMove, SFPro } from "@/lib/fonts";
+import Cursor from "@/components/pages/global/cursor";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${UberMove.className} ${SFPro.className} antialiased`}>
+        <Cursor />
         {children}
       </body>
     </html>

@@ -5,7 +5,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  useCarousel,
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -61,7 +60,7 @@ function Hero() {
   const [index, setIndex] = React.useState(0);
 
   return (
-    <div className="relative h-screen bg-black">
+    <div className="relative h-[90vh] bg-black">
       <Carousel
         opts={{ loop: true }}
         plugins={plugins}
@@ -69,7 +68,7 @@ function Hero() {
         index={index}
         onChangeIndex={setIndex}
       >
-        <CarouselContent className="h-screen">
+        <CarouselContent className="h-[90vh]">
           {carouselItems.map((item, index) => (
             <CarouselItem key={index} className="h-full">
               <div className="relative h-full w-full">
@@ -80,7 +79,7 @@ function Hero() {
                   fill
                   className="object-cover object-bottom pointer-events-none"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black to-black/40" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 to-black/40" />
                 <div className="absolute inset-0 main-padding mx-auto pt-[28vh]">
                   <div className="w-[45%] flex flex-col gap-4">
                     <p className="top-heading">{item.title}</p>

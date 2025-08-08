@@ -126,6 +126,10 @@
 }
 
 @layer components {
+  a *, button * {
+    pointer-events: none;
+  }
+
   .top-heading {
     @apply text-5xl font-bold tracking-tight text-white leading-14;
   }
@@ -142,9 +146,7 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
     pointer-events: none;
-    backdrop-filter: blur(100px);
-    background-color: white;
-    opacity: 50%;
+    backdrop-filter: invert();
   }
 }
 
