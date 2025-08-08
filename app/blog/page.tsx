@@ -18,7 +18,7 @@ const featuredArticle = {
   date: "JUN 12, 2025",
   readTime: "5 MIN",
   image: "/images/1.avif",
-  href: "/resources/evonmedics-funding",
+  href: "/blog/evonmedics-funding",
 };
 
 const latestStories = [
@@ -31,7 +31,7 @@ const latestStories = [
     date: "JUN 12, 2025",
     readTime: "5 MIN",
     image: "/images/aurora.png",
-    href: "/resources/evonmedics-funding",
+    href: "/blog/evonmedics-funding",
   },
   {
     category: "INSIDE EVONMEDICS",
@@ -42,7 +42,7 @@ const latestStories = [
     date: "JUN 12, 2025",
     readTime: "5 MIN",
     image: "/images/coffee.avif",
-    href: "/resources/curing-alzheimers",
+    href: "/blog/curing-alzheimers",
   },
   {
     category: "PRODUCT UPDATES",
@@ -53,7 +53,7 @@ const latestStories = [
     date: "JUN 12, 2025",
     readTime: "5 MIN",
     image: "/images/hero4.avif",
-    href: "/resources/alzheimers-therapy",
+    href: "/blog/alzheimers-therapy",
   },
 ];
 
@@ -65,7 +65,7 @@ const trendingArticles = [
     date: "JUN 12, 2025",
     readTime: "5 MIN",
     image: "/images/hero1.png",
-    href: "/resources/nih-funding-1",
+    href: "/blog/nih-funding-1",
   },
   {
     category: "PRODUCT UPDATES",
@@ -76,7 +76,7 @@ const trendingArticles = [
     date: "JUN 12, 2025",
     readTime: "5 MIN",
     image: "/images/hero4.avif",
-    href: "/resources/alzheimers-therapy",
+    href: "/blog/alzheimers-therapy",
   },
   {
     category: "NEWS",
@@ -85,7 +85,7 @@ const trendingArticles = [
     date: "JUN 12, 2025",
     readTime: "5 MIN",
     image: "/images/hero3.jpg",
-    href: "/resources/nih-funding-3",
+    href: "/blog/nih-funding-3",
   },
   {
     category: "NEWS",
@@ -94,7 +94,7 @@ const trendingArticles = [
     date: "JUN 12, 2025",
     readTime: "5 MIN",
     image: "/images/hero4.avif",
-    href: "/resources/nih-funding-4",
+    href: "/blog/nih-funding-4",
   },
 ];
 

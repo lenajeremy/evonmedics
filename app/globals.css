@@ -7,6 +7,55 @@
   .main-padding {
     padding-inline: 10rem;
   }
+  
+  /* Blog post styles */
+  /* .prose h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  } */
+
+  .prose h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .prose ul {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Blog category tags */
+  .category-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #4D7FFF;
+    background-color: #EEF2FF;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+  }
+
+  .category-tag:hover {
+    background-color: #DBEAFE;
+  }
 }
 
 @theme inline {
