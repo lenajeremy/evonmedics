@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Header from "@/components/pages/global/header";
-import CategoryNav from "@/components/pages/resources/category-nav";
+import CategoryNav from "@/components/pages/blog/category-nav";
 
 export default function NotFound() {
   return (

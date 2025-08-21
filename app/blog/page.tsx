@@ -1,9 +1,9 @@
 "use client";
 
-import CategoryNav from "@/components/pages/resources/category-nav";
-import FeaturedArticle from "@/components/pages/resources/featured-article";
-import ArticleCard from "@/components/pages/resources/article-card";
-import TrendingArticles from "@/components/pages/resources/trending-articles";
+import CategoryNav from "@/components/pages/blog/category-nav";
+import FeaturedArticle from "@/components/pages/blog/featured-article";
+import ArticleCard from "@/components/pages/blog/article-card";
+import TrendingArticles from "@/components/pages/blog/trending-articles";
 import Header from "@/components/pages/global/header";
 import { UberMove } from "@/lib/fonts";
 import Link from "next/link";

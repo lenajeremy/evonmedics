@@ -1,11 +1,10 @@
 "use client";
 
 import Header from "@/components/pages/global/header";
-import CategoryNav from "@/components/pages/resources/category-nav";
-import BlogPost from "@/components/pages/resources/blog-post";
+import BlogPost from "@/components/pages/blog/blog-post";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import SimilarArticles from "@/components/pages/resources/similar-articles";
+import SimilarArticles from "@/components/pages/blog/similar-articles";
 
 interface BlogPostParams {
   params: {
@@ -123,8 +122,6 @@ export default function BlogPostPage({ params }: BlogPostParams) {
     ),
   };
 
-  // In a real app, you would fetch the post based on the slug
-  // If post not found, return 404
   if (params.slug !== "evonmedics-funding") {
     notFound();
   }
