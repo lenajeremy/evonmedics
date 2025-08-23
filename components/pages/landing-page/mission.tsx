@@ -162,21 +162,22 @@ function Mission() {
   }, []);
 
   return (
-    <section ref={containerRef} className="main-padding py-16 relative">
-      <div className="absolute left-24 top-12 z-[-1] opacity-40">
+    <section ref={containerRef} className="main-padding py-12 md:py-16 relative">
+      <div className="absolute left-4 md:left-12 lg:left-24 top-6 md:top-12 z-[-1] opacity-20 md:opacity-40">
         <Image
           src={"/images/image 28.png"}
           alt="background"
-          width={600}
-          height={600}
+          width={400}
+          height={400}
+          className="md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px]"
         />
       </div>
-      <div className="flex gap-24 items-center">
-        <div className="flex flex-col gap-12 flex-[1.2] items-start">
+      <div className="flex flex-col lg:flex-row gap-8 md:gap-16 lg:gap-24 items-center">
+        <div className="flex flex-col gap-6 md:gap-8 lg:gap-12 flex-1 lg:flex-[1.2] items-start order-2 lg:order-1">
           <Tag text="MISSION" />
           <h1
             ref={headingRef as React.RefObject<HTMLHeadingElement>}
-            className={`text-[3.5rem] tracking-tight leading-[1.3] font-semibold pr-10 ${SFPro.className}`}
+            className={`text-2xl md:text-4xl lg:text-[3.5rem] tracking-tight leading-[1.3] font-semibold pr-0 lg:pr-10 ${SFPro.className}`}
           >
             <span>Helping</span>{" "}
             <span className="text-[#4D7FFF]">millions</span> <span>to</span>{" "}
@@ -191,18 +192,18 @@ function Mission() {
               ref={buttonRef}
               variant="default"
               size="lg"
-              className="rounded-full px-8 py-6 text-lg font-medium relative overflow-hidden"
+              className="rounded-full px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-medium relative overflow-hidden"
             >
               <span className="mr-2">Read More</span>
               <span className="inline-block">
                 <svg
                   ref={arrowRef}
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="inline-block"
+                  className="inline-block md:w-6 md:h-6"
                 >
                   <path
                     d="M5 12H19M19 12L12 5M19 12L12 19"
@@ -217,14 +218,14 @@ function Mission() {
           </div>
         </div>
 
-        <div className="flex-1 relative">
+        <div className="flex-1 relative order-1 lg:order-2">
           <Image
             ref={imageRef}
             src={"/images/hero2.jpg"}
             alt="hellooooo"
             width={700}
             height={700}
-            className="h-[700px] w-[600px] object-cover rounded-3xl"
+            className="h-[300px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-2xl lg:rounded-3xl"
             priority
           />
         </div>

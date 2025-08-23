@@ -12,9 +12,7 @@ export default function Home() {
   return (
     <SmoothScroll>
       <div className="relative">
-        <div className="fixed top-0 left-0 w-full z-10">
-          <Header variant="default" />
-        </div>
+        <Header variant="default" />
         <Hero />
         <Mission />
         <ProductsAndServices />

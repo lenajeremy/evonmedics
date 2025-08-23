@@ -60,7 +60,7 @@ function Hero() {
   const [index, setIndex] = React.useState(0);
 
   return (
-    <div className="relative h-[90vh] bg-black">
+    <div className="relative h-[70vh] md:h-[80vh] lg:h-[90vh] bg-black">
       <Carousel
         opts={{ loop: true }}
         plugins={plugins}
@@ -68,7 +68,7 @@ function Hero() {
         index={index}
         onChangeIndex={setIndex}
       >
-        <CarouselContent className="h-[90vh]">
+        <CarouselContent className="h-[70vh] md:h-[80vh] lg:h-[90vh]">
           {carouselItems.map((item, index) => (
             <CarouselItem key={index} className="h-full">
               <div className="relative h-full w-full">
@@ -77,16 +77,16 @@ function Hero() {
                   alt={`Hero Image ${index + 1}`}
                   quality={100}
                   fill
-                  className="object-cover object-bottom pointer-events-none"
+                  className="object-cover object-center md:object-bottom pointer-events-none"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 to-black/40" />
-                <div className="absolute inset-0 main-padding mx-auto pt-[28vh]">
-                  <div className="w-[45%] flex flex-col gap-4">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 to-black/50" />
+                <div className="absolute inset-0 main-padding mx-auto pt-[15vh] md:pt-[20vh] lg:pt-[28vh]">
+                  <div className="w-full md:w-[65%] lg:w-[45%] flex flex-col gap-3 md:gap-4">
                     <p className="top-heading">{item.title}</p>
-                    <p className="w-4/5 subtitle">{item.subtitle}</p>
+                    <p className="w-full md:w-4/5 subtitle">{item.subtitle}</p>
                     <Button
                       size={"lg"}
-                      className="bg-blue-500 hover:bg-blue-600 w-fit"
+                      className="bg-blue-500 hover:bg-blue-600 w-fit mt-2"
                     >
                       READ MORE
                     </Button>
@@ -96,8 +96,9 @@ function Hero() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 main-padding w-full">
-          <div className="flex space-x-8 w-full py-4">
+        {/* Carousel indicators - hidden on mobile, shown on tablet+ */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 main-padding w-full hidden md:block">
+          <div className="flex space-x-4 lg:space-x-8 w-full py-4">
             {Array.from(carouselItems.keys()).map((i) => (
               <CarouselSection
                 active={i === index}
@@ -109,12 +110,26 @@ function Hero() {
           </div>
         </div>
 
-        <div className="absolute top-[45%] transform -translate-y-1/2 w-full px-8">
+        {/* Simple dots for mobile */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 md:hidden">
+          {Array.from(carouselItems.keys()).map((i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                i === index ? "bg-white" : "bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Navigation arrows - responsive sizing */}
+        <div className="absolute top-[45%] transform -translate-y-1/2 w-full px-4 md:px-8">
           <div className="flex justify-between items-center">
             <Button
               variant="outline"
               size="icon"
-              className="bg-transparent hover:bg-transparent border-none scale-150 shadow-none"
+              className="bg-transparent hover:bg-transparent border-none scale-100 md:scale-125 lg:scale-150 shadow-none"
               onClick={() =>
                 setIndex(
                   (prev) =>
@@ -128,6 +143,7 @@ function Hero() {
                 viewBox="0 0 14 23"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="w-3 h-5 md:w-4 md:h-6"
               >
                 <path
                   d="M13.75 3.41291L11.1812 0.844086L0.25 11.7753L11.1812 22.7064L13.75 20.1376L5.40587 11.7753L13.75 3.41291Z"
@@ -138,7 +154,7 @@ function Hero() {
             <Button
               variant="outline"
               size="icon"
-              className="bg-transparent hover:bg-transparent border-none scale-150 shadow-none"
+              className="bg-transparent hover:bg-transparent border-none scale-100 md:scale-125 lg:scale-150 shadow-none"
               onClick={() =>
                 setIndex((prev) => (prev + 1) % carouselItems.length)
               }
@@ -149,6 +165,7 @@ function Hero() {
                 viewBox="0 0 14 23"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="w-3 h-5 md:w-4 md:h-6"
               >
                 <path
                   d="M0.25 3.41291L2.81883 0.844086L13.75 11.7753L2.81883 22.7064L0.25 20.1376L8.59413 11.7753L0.25 3.41291Z"
@@ -176,7 +193,7 @@ function CarouselSection({
     <button
       onClick={() => setIndex(index - 1)}
       role="button"
-      className={`flex py-3 pt-5 px-3 gap-3 relative text-white ${UberMove.className} ${
+      className={`flex py-3 pt-5 px-2 md:px-3 gap-2 md:gap-3 relative text-white ${UberMove.className} ${
         active ? "opacity-100" : "opacity-45"
       }`}
     >
@@ -193,10 +210,10 @@ function CarouselSection({
         )}
       </div>
 
-      <p className="font-semibold text-lg">
+      <p className="font-semibold text-sm md:text-base lg:text-lg">
         {index.toString().padStart(2, "0")}
       </p>
-      <p className="pointer-events-none text-left font-[var(--font-nunito-sans)]">
+      <p className="pointer-events-none text-left text-xs md:text-sm font-[var(--font-nunito-sans)]">
         Enhancing everyday experiences to the quality of life and mental
         wellbeing for individuals.
       </p>

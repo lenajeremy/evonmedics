@@ -57,24 +57,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-gray-300 py-16">
-      <div className="main-padding mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+    <footer className="bg-black text-gray-300 py-12 md:py-16">
+      <div className="main-padding mx-auto">
+        <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
           {/* Newsletter Section */}
-          <div className="md:col-span-4 space-y-8">
+          <div className="lg:col-span-5 space-y-6 md:space-y-8">
             <Image
               src="/logo.svg"
               alt="EvonMedics"
-              width={180}
-              height={40}
-              className="brightness-0 invert"
+              width={160}
+              height={36}
+              className="brightness-0 invert md:w-[180px] md:h-[40px]"
             />
             <div className="space-y-4">
-              <h3 className={"text-2xl text-white " + UberMove.className}>
+              <h3 className={"text-xl md:text-2xl text-white " + UberMove.className}>
                 Join our newsletter to stay up to date
               </h3>
               <form onSubmit={handleSubscribe} className="space-y-4">
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <input
                     type="email"
                     value={email}
@@ -85,12 +85,12 @@ export default function Footer() {
                   />
                   <button
                     type="submit"
-                    className="px-8 py-3 bg-[#4D7FFF] text-white rounded-full hover:bg-blue-600 transition-colors"
+                    className="px-6 sm:px-8 py-3 bg-[#4D7FFF] text-white rounded-full hover:bg-blue-600 transition-colors whitespace-nowrap"
                   >
                     Subscribe
                   </button>
                 </div>
-                <p className="text-sm text-gray-400">
+                <p className="text-xs md:text-sm text-gray-400">
                   By subscribing you agree to with our{" "}
                   <Link
                     href="/privacy"
@@ -105,25 +105,25 @@ export default function Footer() {
           </div>
 
           {/* Links Sections */}
-          <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {Object.entries(footerLinks).map(([key, section]) => (
-              <div key={key} className="space-y-4">
-                <h4 className="text-lg text-white font-medium">
+              <div key={key} className="space-y-3 md:space-y-4">
+                <h4 className="text-base md:text-lg text-white font-medium">
                   {section.title}
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 md:space-y-3">
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-gray-400 hover:text-white transition-colors"
+                        className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                       >
                         {link.label}
                       </Link>
                     </li>
                   ))}
                   {key === "getInTouch" && (
-                    <li className="text-gray-400 mt-4">
+                    <li className="text-xs md:text-sm text-gray-400 mt-3 md:mt-4 leading-relaxed">
                       {/* @ts-ignore */}
                       {section.address}
                     </li>

@@ -7,12 +7,11 @@ import Image from "next/image";
 import SimilarArticles from "@/components/pages/blog/similar-articles";
 
 interface BlogPostParams {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
-export default function BlogPostPage({ params }: BlogPostParams) {
+export default async function BlogPostPage({ params }: BlogPostParams) {
+  const { slug } = await params;
   // This would typically come from a CMS or API
   // For now, we'll hardcode a sample post based on the design
   const post = {
@@ -122,7 +121,7 @@ export default function BlogPostPage({ params }: BlogPostParams) {
     ),
   };
 
-  if (params.slug !== "evonmedics-funding") {
+  if (slug !== "evonmedics-funding") {
     notFound();
   }
 
