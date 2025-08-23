@@ -8,6 +8,29 @@ import Header from "@/components/pages/global/header";
 import { UberMove } from "@/lib/fonts";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog - Latest Medical Research & Industry News",
+  description: "Stay updated with EvonMedics' latest research findings, clinical trial results, and breakthrough developments in neurological treatment technology. Read expert insights on Alzheimer's research, pain management, and addiction therapy.",
+  openGraph: {
+    title: "EvonMedics Blog - Latest Medical Research & Industry News",
+    description: "Stay updated with EvonMedics' latest research findings, clinical trial results, and breakthrough developments in neurological treatment technology.",
+    url: "https://evonmedics.com/blog",
+    images: [
+      {
+        url: "/images/aurora.png",
+        width: 1200,
+        height: 630,
+        alt: "EvonMedics Blog - Medical Research and News",
+      },
+    ],
+  },
+  twitter: {
+    title: "EvonMedics Blog - Latest Medical Research & Industry News",
+    description: "Stay updated with EvonMedics' latest research findings, clinical trial results, and breakthrough developments in neurological treatment technology.",
+  },
+};
 
 const featuredArticle = {
   category: "DESIGN AND ENGINEERING",

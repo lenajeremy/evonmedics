@@ -129,7 +129,30 @@ function MarqueeLogos() {
 }
 
 export default function VideoDisplay() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  // Close modal on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeModal();
+    };
+
+    if (isModalOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
+
   return (
+    <>
     <div className="w-full bg-black flex flex-col items-center justify-center min-h-[50vh] md:min-h-[60vh] py-16 md:py-20 lg:py-30 relative overflow-x-hidden">
       <div className="max-w-4xl mx-auto text-center px-4">
         <h1 className="text-[28px] sm:text-[34px] md:text-[44px] lg:text-[54px] font-medium leading-tight text-[#D1D5DB]">
@@ -146,6 +169,7 @@ export default function VideoDisplay() {
         </h1>
         <div className="mt-8 md:mt-12 flex justify-center">
           <button
+            onClick={openModal}
             className={clsx(
               "flex items-center gap-2 md:gap-3 px-6 md:px-10 py-3 md:py-4 rounded-full bg-gradient-to-r from-[#4D7FFF] to-[#5EA2EF] text-white text-base md:text-lg font-medium shadow-lg",
               "hover:scale-105 transition-transform duration-300 relative z-10"
@@ -183,5 +207,57 @@ export default function VideoDisplay() {
       <MarqueeLogos />
       <div className="absolute left-1/2 top-[52%] -translate-x-1/2 -translate-y-1/2 w-[180px] h-[90px] md:w-[240px] md:h-[120px] bg-[#4D7FFF] opacity-30 blur-3xl rounded-full z-0 pointer-events-none" />
     </div>
+
+    {/* YouTube Video Modal */}
+    {isModalOpen && (
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+        {/* Backdrop */}
+        <div 
+          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+          onClick={closeModal}
+        />
+        
+        {/* Modal Content */}
+        <div className="relative z-10 w-full max-w-4xl mx-4 md:mx-8">
+          {/* Close Button */}
+          <button
+            onClick={closeModal}
+            className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
+            aria-label="Close video"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6L6 18M6 6L18 18"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          {/* Video Container */}
+          <div className="relative w-full bg-black rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/KVeQMHyrNxE?autoplay=1&start=1&rel=0&modestbranding=1"
+                title="EvonMedics Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
