@@ -1,5 +1,3 @@
-"use client";
-
 import CategoryNav from "@/components/pages/blog/category-nav";
 import FeaturedArticle from "@/components/pages/blog/featured-article";
 import ArticleCard from "@/components/pages/blog/article-card";
