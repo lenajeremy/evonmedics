@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { UberMove } from "@/lib/fonts";
+import { SFPro, UberMove } from "@/lib/fonts";
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
@@ -141,15 +141,147 @@ const NavLink = ({ href, children }: { href: string; children: string }) => {
   );
 };
 
-type HeaderProps = {
-  variant?: "default" | "secondary";
+// Products Dropdown Component
+const ProductsDropdown = ({ isVisible, onMouseLeave }: { isVisible: boolean; onMouseLeave: () => void }) => {
+  return (
+    <div
+      className={`absolute w-[400px] overflow-hidden rounded-xl -translate-x-1/2 left-1/2  top-full bg-white shadow-2xl border-t border-gray-100 transition-all duration-300 z-50 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
+        }`}
+      onMouseLeave={onMouseLeave}
+    >
+      <div>
+        <div className="divide-y py-1">
+          <div className={`group cursor-pointer px-6 py-6 hover:bg-gray-50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`} style={{
+              transitionDelay: isVisible ? '0ms' : '0ms',
+              transition: 'all 500ms ease-out'
+            }}>
+            <Link href="/products/cbot-p" className="flex items-start space-x-4">
+              <div className="w-9 h-9 bg-gradient-to-br from-purple-400 to-blue-500 rounded-md flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
+                  CBOT-P
+                </h4>
+                <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
+                  Computerized Chemosensory-Based Orbitofrontal Networks Training for Treatment of Pain
+                </p>
+              </div>
+            </Link>
+          </div>
+
+          <div className={`group cursor-pointer px-6 py-6 hover:bg-gray-50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`} style={{
+              transitionDelay: isVisible ? '0ms' : '0ms',
+              transition: 'all 500ms ease-out'
+            }}>
+            <Link href="/products/ddt" className="flex items-start space-x-4">
+              <div className="flex items-start space-x-3">
+                <div className="w-9 h-9 bg-gradient-to-br from-green-400 to-teal-500 rounded-md flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
+                    DDT (Direction Driven Training)
+                  </h4>
+                  <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
+                    Cutting-edge brain-computer interface technology for neurological treatments
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* AI Analytics */}
+          <div className={`group cursor-pointer px-6 py-6 hover:bg-gray-50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`} style={{
+              transitionDelay: isVisible ? '200ms' : '0ms',
+              transition: 'all 500ms ease-out'
+            }}>
+            <div className="flex items-start space-x-3">
+              <div className="w-9 h-9 bg-gradient-to-br from-pink-400 to-purple-500 rounded-md flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
+                  AI Analytics
+                </h4>
+                <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
+                  Machine learning algorithms for treatment optimization and patient care
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Clinical Trials */}
+          <div className={`group cursor-pointer px-6 py-6 hover:bg-gray-50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`} style={{
+              transitionDelay: isVisible ? '300ms' : '0ms',
+              transition: 'all 500ms ease-out'
+            }}>
+            <div className="flex items-start space-x-3">
+              <div className="w-9 h-9 bg-gradient-to-br from-orange-400 to-red-500 rounded-md flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
+                  Clinical Trials
+                </h4>
+                <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
+                  FDA-approved research studies and patient trials for breakthrough treatments
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Academic Partnerships */}
+          <div className={`group cursor-pointer px-6 py-6 hover:bg-gray-50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`} style={{
+              transitionDelay: isVisible ? '400ms' : '0ms',
+              transition: 'all 500ms ease-out'
+            }}>
+            <div className="flex items-start space-x-3">
+              <div className="w-9 h-9 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-md flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
+                  Academic Partnerships
+                </h4>
+                <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
+                  Collaborations with leading research institutions worldwide
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div >
+  );
 };
 
-function Header({ variant }: HeaderProps) {
+type HeaderProps = {
+  variant?: "default" | "secondary";
+  className?: string;
+};
+
+function Header({ variant, className }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isProductsDropdownVisible, setIsProductsDropdownVisible] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -158,9 +290,9 @@ function Header({ variant }: HeaderProps) {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       setIsScrolled(currentScrollY > 50);
-      
+
       if (variant === "default") {
         if (currentScrollY < 50) {
           setIsVisible(true);
@@ -170,7 +302,7 @@ function Header({ variant }: HeaderProps) {
         } else if (currentScrollY < lastScrollY) {
           setIsVisible(true);
         }
-        
+
         setLastScrollY(currentScrollY);
       } else {
         setIsVisible(true);
@@ -185,11 +317,11 @@ function Header({ variant }: HeaderProps) {
     if (variant === "secondary") {
       return "bg-white border-b-[1.5px] border-gray-200";
     }
-    
+
     if (isScrolled) {
       return "bg-black/50 backdrop-blur-md shadow-lg";
     }
-    
+
     return "bg-transparent";
   };
 
@@ -197,19 +329,18 @@ function Header({ variant }: HeaderProps) {
     if (variant === "secondary") {
       return "text-gray-700";
     }
-    
+
     if (isScrolled) {
       return "text-white";
     }
-    
+
     return "text-gray-200";
   };
 
   const getPositionClasses = () => {
     if (variant === "default") {
-      return `fixed top-0 left-0 right-0 z-50 transform ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`;
+      return `fixed top-0 left-0 right-0 z-50 transform ${isVisible ? 'translate-y-0' : '-translate-y-full'
+        }`;
     } else {
       return "relative";
     }
@@ -217,31 +348,42 @@ function Header({ variant }: HeaderProps) {
 
   return (
     <header
-      className={`main-padding ${getHeaderStyles()} ${getPositionClasses()} transition-all duration-300 ease-in-out`}
+      className={`main-padding ${getHeaderStyles()} ${getPositionClasses()} transition-all duration-300 ease-in-out ${className}`}
     >
       <div className={`max-w-7xl mx-auto flex items-center justify-between py-4 ${UberMove.className}`}>
         <Link href="/">
           <div className="w-32 md:w-40 lg:w-48 relative h-10 md:h-12 lg:h-14">
-            <Image 
-              src="/logo.svg" 
-              alt="EvonMedics' Official Logo" 
-              fill 
-              className={`transition-all duration-300 ${
-                variant === "default" && isScrolled ? "brightness-0 invert" : ""
-              }`}
+            <Image
+              src="/logo.svg"
+              alt="EvonMedics' Official Logo"
+              fill
+              className={`transition-all duration-300 ${variant === "default" && isScrolled ? "brightness-0 invert" : ""
+                }`}
             />
           </div>
         </Link>
 
         <nav className="hidden lg:block">
           <ul
-            className={`flex space-x-8 lg:space-x-16 ${getTextStyles()} transition-colors duration-300`}
+            className={`items-center flex space-x-8 lg:space-x-16 ${getTextStyles()} transition-colors duration-300`}
           >
             <li>
               <NavLink href="/about-us">About Us</NavLink>
             </li>
-            <li>
-              <NavLink href="/about">Products</NavLink>
+            <li className="relative">
+              <div
+                className="font-medium cursor-pointer flex items-center space-x-1 p-4"
+                onMouseEnter={() => setIsProductsDropdownVisible(true)}
+              >
+                <span>Products</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              <ProductsDropdown
+                isVisible={isProductsDropdownVisible}
+                onMouseLeave={() => setIsProductsDropdownVisible(false)}
+              />
             </li>
             <li>
               <NavLink href="/services">Investors</NavLink>
@@ -264,38 +406,36 @@ function Header({ variant }: HeaderProps) {
           className={`lg:hidden p-2 ${getTextStyles()} transition-colors duration-300`}
           aria-label="Toggle menu"
         >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          {isMenuOpen ? (
-            <path d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          )}
-        </svg>
-      </button>
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            {isMenuOpen ? (
+              <path d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
       </div>
 
       {isMenuOpen && (
-        <div className={`absolute top-full left-0 right-0 shadow-lg border-t lg:hidden z-50 transition-all duration-300 ${
-          variant === "default" && isScrolled 
-            ? "bg-black/95 backdrop-blur-md border-gray-700" 
-            : "bg-white border-gray-200"
-        }`}>
+        <div className={`absolute top-full left-0 right-0 shadow-lg border-t lg:hidden z-50 transition-all duration-300 ${variant === "default" && isScrolled
+          ? "bg-black/95 backdrop-blur-md border-gray-700"
+          : "bg-white border-gray-200"
+          }`}>
           <nav className="main-padding py-4">
             <ul className="space-y-4">
               <li>
                 <Link
                   href="/about-us"
-                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${
-                    variant === "default" && isScrolled ? "text-white" : "text-gray-700"
-                  }`}
+                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About Us
@@ -304,9 +444,8 @@ function Header({ variant }: HeaderProps) {
               <li>
                 <Link
                   href="/about"
-                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${
-                    variant === "default" && isScrolled ? "text-white" : "text-gray-700"
-                  }`}
+                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Products
@@ -315,9 +454,8 @@ function Header({ variant }: HeaderProps) {
               <li>
                 <Link
                   href="/services"
-                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${
-                    variant === "default" && isScrolled ? "text-white" : "text-gray-700"
-                  }`}
+                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Investors
@@ -326,9 +464,8 @@ function Header({ variant }: HeaderProps) {
               <li>
                 <Link
                   href="/blog"
-                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${
-                    variant === "default" && isScrolled ? "text-white" : "text-gray-700"
-                  }`}
+                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Blog
@@ -337,16 +474,15 @@ function Header({ variant }: HeaderProps) {
               <li>
                 <Link
                   href="/contact"
-                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${
-                    variant === "default" && isScrolled ? "text-white" : "text-gray-700"
-                  }`}
+                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Careers
                 </Link>
               </li>
               <li className="pt-4">
-                <Button 
+                <Button
                   className="w-full bg-blue-500 hover:bg-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >

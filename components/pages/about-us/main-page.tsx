@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { Header, Tag, Footer } from "@/components/pages/global";
 import SmoothScroll from "@/components/smooth-scroll";
+import { VideoDisplay } from "../landing-page";
+import { Button } from "@/components/ui/button";
 
 const AboutUsPage = () => {
   const timelineRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -45,7 +47,7 @@ const AboutUsPage = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50"></div>
             <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-xl"></div>
             <div className="absolute bottom-10 left-10 w-48 h-48 bg-gradient-to-r from-pink-400/10 to-orange-400/10 rounded-full blur-xl"></div>
-            
+
             <div className="max-w-7xl mx-auto relative">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                 {/* Content Column */}
@@ -117,7 +119,7 @@ const AboutUsPage = () => {
                   </div>
 
                   <div className="space-y-6">
-                    <p className="text-base text-gray-700 leading-relaxed">
+                    <p className="text-lg text-gray-700 leading-relaxed">
                       EvonMedics is the largest integrated, not-for-profit neurotechnology practice in the world. We're
                       building the future, one where the best possible care is available to everyone — and more people
                       can heal at home. Our relentless research turns into earlier diagnoses and new cures. That's how
@@ -129,7 +131,7 @@ const AboutUsPage = () => {
                         Innovating for new solutions
                       </h3>
 
-                      <p className="text-base text-gray-700 leading-relaxed">
+                      <p className="text-lg text-gray-700 leading-relaxed">
                         At EvonMedics, experts work together to solve the most challenging unmet needs of patients.
                         Our <a href="#" className="text-[#0066CC] underline decoration-1 hover:no-underline">history of innovation</a> dates
                         back almost 150 years, when brothers Will and Charlie Mayo pioneered an integrated, team-based approach
@@ -144,7 +146,7 @@ const AboutUsPage = () => {
                         Top rankings for quality care
                       </h3>
 
-                      <p className="text-base text-gray-700 leading-relaxed">
+                      <p className="text-lg text-gray-700 leading-relaxed">
                         Our unwavering drive to create better medical care has earned EvonMedics
                         <a href="#" className="text-[#0066CC] underline decoration-1 hover:no-underline">more top rankings</a> for
                         <a href="#" className="text-[#0066CC] underline decoration-1 hover:no-underline">high-quality patient care</a> than
@@ -171,7 +173,7 @@ const AboutUsPage = () => {
                     </h2>
                   </div>
 
-                  <p className="text-base text-gray-700 leading-relaxed">
+                  <p className="text-lg text-gray-700 leading-relaxed">
                     We think big and act boldly to improve the health of communities and accelerate equality
                     and diversity in health care. We share our knowledge globally, impact policy, and partner
                     with others to create lasting change — and much-needed — change for a healthier world.
@@ -182,7 +184,7 @@ const AboutUsPage = () => {
                       Improving health equity
                     </h3>
 
-                    <p className="text-base text-gray-700 leading-relaxed">
+                    <p className="text-lg text-gray-700 leading-relaxed">
                       We partner with community organizations to
                       <a href="#" className="text-[#0066CC] underline decoration-1 hover:no-underline"> end health disparities</a> through education
                       programs, personalized health care, and community-engaged research. We're accelerating recruitment of diverse investigators
@@ -194,11 +196,7 @@ const AboutUsPage = () => {
                   </div>
 
                   <div className="pt-4">
-                    <button className="group/btn relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                      <span className="relative z-10">Explore our community engagement</span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
-                    </button>
+                    <Button>EXPLORE OUR COMMUNITY ENGAGEMENTS</Button>
                   </div>
                 </div>
 
@@ -219,7 +217,7 @@ const AboutUsPage = () => {
           </section>
 
           {/* Company Milestones Timeline Section */}
-          <section className="main-padding py-16 lg:py-20 bg-black text-white">
+          <section className="main-padding py-16 lg:py-20 pb-32 bg-black text-white">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -530,41 +528,20 @@ const AboutUsPage = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Enhanced Desktop Content - Additional Visual Elements */}
-                <div className="hidden lg:block mt-20">
-                  <div className="grid grid-cols-3 gap-8">
-                    {/* Innovation Stats */}
-                    <div className="text-center p-6 bg-gray-900 rounded-lg border border-gray-700">
-                      <div className="text-3xl font-bold text-blue-400 mb-2">$2.9M+</div>
-                      <div className="text-sm text-gray-300">Research Funding</div>
-                    </div>
-                    
-                    {/* Research Areas */}
-                    <div className="text-center p-6 bg-gray-900 rounded-lg border border-gray-700">
-                      <div className="text-3xl font-bold text-blue-400 mb-2">3+</div>
-                      <div className="text-sm text-gray-300">Research Programs</div>
-                    </div>
-                    
-                    {/* Partnerships */}
-                    <div className="text-center p-6 bg-gray-900 rounded-lg border border-gray-700">
-                      <div className="text-3xl font-bold text-blue-400 mb-2">5+</div>
-                      <div className="text-sm text-gray-300">Strategic Partners</div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
 
+          <VideoDisplay />
+
           {/* Leadership Section */}
-          <section className="main-padding py-12 md:py-16 lg:py-20 bg-gradient-to-r from-gray-50 via-blue-50 to-purple-50">
+          <section className="main-padding py-12 md:py-16 lg:py-20 bg-white">
             <div className="max-w-7xl mx-auto">
               <div className="text-center space-y-6 mb-12 lg:mb-16">
                 <div className="inline-block">
                   <Tag text="LEADERSHIP" />
                 </div>
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
                   Meet our leadership team
                 </h3>
                 <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -574,25 +551,21 @@ const AboutUsPage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* Dr. Sarah Johnson */}
-                <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-transparent hover:border-blue-200">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+                <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-transparent hover:border-gray-200">
                   <div className="relative text-center space-y-4">
                     <div className="relative mx-auto">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-lg"></div>
                       <Image
                         src="/images/1.avif"
                         alt="Dr. Sarah Johnson, Chief Executive Officer"
                         width={300}
                         height={300}
-                        className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto ring-4 ring-transparent group-hover:ring-blue-300 transition-all duration-500"
+                        className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto ring-4 ring-transparent group-hover:ring-gray-300 transition-all duration-500"
                       />
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">Dr. Sarah Johnson</h4>
-                      <p className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Chief Executive Officer</p>
-                      <p className="text-gray-600 text-sm px-4 group-hover:text-gray-700 transition-colors duration-300">
+                      <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Dr. Sarah Johnson</h4>
+                      <p className="font-semibold text-gray-700">Chief Executive Officer</p>
+                      <p className="text-gray-600 text-sm px-4 transition-colors duration-300">
                         Leading neurologist with 20+ years pioneering neurotechnology innovations
                       </p>
                     </div>
@@ -600,25 +573,21 @@ const AboutUsPage = () => {
                 </div>
 
                 {/* Dr. Michael Chen */}
-                <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-transparent hover:border-purple-200">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+                <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-transparent hover:border-gray-200">
                   <div className="relative text-center space-y-4">
                     <div className="relative mx-auto">
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-lg"></div>
                       <Image
                         src="/images/2.avif"
                         alt="Dr. Michael Chen, Chief Technology Officer"
                         width={300}
                         height={300}
-                        className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto ring-4 ring-transparent group-hover:ring-purple-300 transition-all duration-500"
+                        className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto ring-4 ring-transparent group-hover:ring-gray-300 transition-all duration-500"
                       />
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">Dr. Michael Chen</h4>
-                      <p className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Chief Technology Officer</p>
-                      <p className="text-gray-600 text-sm px-4 group-hover:text-gray-700 transition-colors duration-300">
+                      <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Dr. Michael Chen</h4>
+                      <p className="font-semibold text-gray-700">Chief Technology Officer</p>
+                      <p className="text-gray-600 text-sm px-4 transition-colors duration-300">
                         Biomedical engineer specializing in neural interface technologies
                       </p>
                     </div>
@@ -626,25 +595,21 @@ const AboutUsPage = () => {
                 </div>
 
                 {/* Dr. Emily Rodriguez */}
-                <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-transparent hover:border-pink-200">
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-orange-500/5 to-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+                <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-transparent hover:border-gray-200">
                   <div className="relative text-center space-y-4">
                     <div className="relative mx-auto">
-                      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-red-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-lg"></div>
                       <Image
                         src="/images/3.avif"
                         alt="Dr. Emily Rodriguez, Chief Medical Officer"
                         width={300}
                         height={300}
-                        className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto ring-4 ring-transparent group-hover:ring-pink-300 transition-all duration-500"
+                        className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto ring-4 ring-transparent group-hover:ring-gray-300 transition-all duration-500"
                       />
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-500/20 to-red-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors duration-300">Dr. Emily Rodriguez</h4>
-                      <p className="font-semibold bg-gradient-to-r from-pink-600 to-red-600 bg-clip-text text-transparent">Chief Medical Officer</p>
-                      <p className="text-gray-600 text-sm px-4 group-hover:text-gray-700 transition-colors duration-300">
+                      <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Dr. Emily Rodriguez</h4>
+                      <p className="font-semibold text-gray-700">Chief Medical Officer</p>
+                      <p className="text-gray-600 text-sm px-4 transition-colors duration-300">
                         Clinical specialist focused on innovative treatment approaches
                       </p>
                     </div>
@@ -654,8 +619,6 @@ const AboutUsPage = () => {
             </div>
           </section>
         </main>
-        
-        <Footer />
       </div>
     </SmoothScroll>
   );
