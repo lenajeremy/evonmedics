@@ -11,14 +11,14 @@ import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 
 // AnimatedText component that handles word-by-word animation
-const AnimatedText = ({ 
-  text, 
-  highlights = [], 
+const AnimatedText = ({
+  text,
+  highlights = [],
   className = "",
-  key: animationKey 
-}: { 
-  text: string; 
-  highlights?: string[]; 
+  key: animationKey
+}: {
+  text: string;
+  highlights?: string[];
   className?: string;
   key?: string | number;
 }) => {
@@ -29,7 +29,7 @@ const AnimatedText = ({
     if (!containerRef.current) return;
 
     const words = wordsRef.current.filter(Boolean);
-    
+
     // Set initial state
     gsap.set(words, {
       y: -20,
@@ -56,7 +56,7 @@ const AnimatedText = ({
       {words.map((word, index) => {
         const cleanWord = word.replace(/[.,:]$/g, "");
         const isHighlighted = highlights.includes(cleanWord);
-        
+
         return (
           <React.Fragment key={index}>
             <span
@@ -91,9 +91,8 @@ const ListItem = ({
 }) => (
   <Link
     href="/"
-    className={`relative group flex w-full items-center group py-4 md:py-6 px-2 md:px-4 border-t-[1.5] border-t-[#E3E3E3] ${
-      isLast && "border-t-0"
-    }`}
+    className={`relative group flex w-full items-center group py-4 md:py-6 px-2 md:px-4 border-t-[1.5] border-t-[#E3E3E3] ${isLast && "border-t-0"
+      }`}
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
   >
@@ -173,93 +172,95 @@ export default function ProductAndServices() {
   };
 
   return (
-    <section className="main-padding flex flex-col gap-8 md:gap-12 lg:gap-16 pb-8 md:pb-12 lg:pb-16">
-      <div className="flex flex-col gap-16 md:gap-24 lg:gap-32">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
-          <div className="flex-1 order-2 lg:order-1">
-            <Image
-              src={"/images/granny.png"}
-              alt="White Grandma"
-              width={700}
-              height={700}
-              className="h-[400px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-lg"
-            />
-          </div>
-          <div className="flex flex-col gap-6 lg:gap-8 flex-1 lg:flex-[1.2] items-start order-1 lg:order-2">
-            <Tag text="OUR PRODUCTS" />
-            <div className="space-y-8 md:space-y-12 lg:space-y-16 pr-0 lg:pr-16">
-              <AnimatedText
-                key={animationKey}
-                text={textVariants[currentText as keyof typeof textVariants].text}
-                highlights={textVariants[currentText as keyof typeof textVariants].highlights}
-                className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed lg:leading-12 tracking-tight"
+    <section className="main-padding py-8 md:py-12 lg:py-16">
+      <div className="max-w-7xl mx-auto flex flex-col gap-8 md:gap-12 lg:gap-16">
+        <div className="flex flex-col gap-16 md:gap-24 lg:gap-32">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
+            <div className="flex-1 order-2 lg:order-1">
+              <Image
+                src={"/images/granny.png"}
+                alt="White Grandma"
+                width={700}
+                height={700}
+                className="h-[400px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-lg"
               />
-              <div>
-                <ListItem
-                  index={1}
-                  text="Alzheimers"
-                  onHover={() => handleHover("alzheimers")}
-                  onLeave={handleLeave}
+            </div>
+            <div className="flex flex-col gap-6 lg:gap-8 flex-1 lg:flex-[1.2] items-start order-1 lg:order-2">
+              <Tag text="OUR PRODUCTS" />
+              <div className="space-y-8 md:space-y-12 lg:space-y-16 pr-0 lg:pr-16">
+                <AnimatedText
+                  key={animationKey}
+                  text={textVariants[currentText as keyof typeof textVariants].text}
+                  highlights={textVariants[currentText as keyof typeof textVariants].highlights}
+                  className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed lg:leading-12 tracking-tight"
                 />
-                <ListItem
-                  index={2}
-                  text="Chronic Pain"
-                  onHover={() => handleHover("chronicpain")}
-                  onLeave={handleLeave}
-                />
-                <ListItem
-                  index={3}
-                  isLast
-                  text="Addiction Treatment"
-                  onHover={() => handleHover("addictiontreatment")}
-                  onLeave={handleLeave}
-                />
+                <div>
+                  <ListItem
+                    index={1}
+                    text="Alzheimers"
+                    onHover={() => handleHover("alzheimers")}
+                    onLeave={handleLeave}
+                  />
+                  <ListItem
+                    index={2}
+                    text="Chronic Pain"
+                    onHover={() => handleHover("chronicpain")}
+                    onLeave={handleLeave}
+                  />
+                  <ListItem
+                    index={3}
+                    isLast
+                    text="Addiction Treatment"
+                    onHover={() => handleHover("addictiontreatment")}
+                    onLeave={handleLeave}
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex flex-col gap-16 md:gap-24 lg:gap-32">
-        <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-32 items-center">
-          <div className="flex-1 order-2 lg:order-2">
-            <Image
-              src={"/images/granny.png"}
-              alt="White Grandma"
-              width={700}
-              height={700}
-              className="h-[400px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-lg"
-            />
-          </div>
-          <div className="flex flex-col gap-6 lg:gap-8 flex-1 lg:flex-[1.2] items-start order-1 lg:order-1">
-            <Tag text="OUR SERVICES" />
-            <div className="space-y-8 md:space-y-12 lg:space-y-16 pr-0 lg:pr-16">
-              <AnimatedText
-                key={animationKey2}
-                text={textVariants[currentText2 as keyof typeof textVariants].text}
-                highlights={textVariants[currentText2 as keyof typeof textVariants].highlights}
-                className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed lg:leading-12 tracking-tight"
+        <div className="flex flex-col gap-16 md:gap-24 lg:gap-32">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
+            <div className="flex-1 order-2 lg:order-2">
+              <Image
+                src={"/images/granny.png"}
+                alt="White Grandma"
+                width={700}
+                height={700}
+                className="h-[400px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-lg"
               />
-              <div>
-                <ListItem
-                  index={1}
-                  text="Alzheimers"
-                  onHover={() => handleHover2("alzheimers")}
-                  onLeave={handleLeave2}
+            </div>
+            <div className="flex flex-col gap-6 lg:gap-8 flex-1 lg:flex-[1.2] items-start order-1 lg:order-1">
+              <Tag text="OUR SERVICES" />
+              <div className="space-y-8 md:space-y-12 lg:space-y-16 pr-0 lg:pr-16">
+                <AnimatedText
+                  key={animationKey2}
+                  text={textVariants[currentText2 as keyof typeof textVariants].text}
+                  highlights={textVariants[currentText2 as keyof typeof textVariants].highlights}
+                  className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed lg:leading-12 tracking-tight"
                 />
-                <ListItem
-                  index={2}
-                  text="Chronic Pain"
-                  onHover={() => handleHover2("chronicpain")}
-                  onLeave={handleLeave2}
-                />
-                <ListItem
-                  index={3}
-                  isLast
-                  text="Addiction Treatment"
-                  onHover={() => handleHover2("addictiontreatment")}
-                  onLeave={handleLeave2}
-                />
+                <div>
+                  <ListItem
+                    index={1}
+                    text="Alzheimers"
+                    onHover={() => handleHover2("alzheimers")}
+                    onLeave={handleLeave2}
+                  />
+                  <ListItem
+                    index={2}
+                    text="Chronic Pain"
+                    onHover={() => handleHover2("chronicpain")}
+                    onLeave={handleLeave2}
+                  />
+                  <ListItem
+                    index={3}
+                    isLast
+                    text="Addiction Treatment"
+                    onHover={() => handleHover2("addictiontreatment")}
+                    onLeave={handleLeave2}
+                  />
+                </div>
               </div>
             </div>
           </div>

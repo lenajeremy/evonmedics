@@ -122,7 +122,7 @@ const trendingArticles = [
 export default function ResourcesPage() {
   return (
     <>
-      <Header />
+      <Header variant="secondary" />
       <CategoryNav />
       <main className="min-h-screen pb-12 md:pb-20 main-padding">
         <div className="max-w-[1200px] mx-auto space-y-12 md:space-y-20 mt-8 md:mt-12">

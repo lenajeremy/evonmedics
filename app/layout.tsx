@@ -48,9 +48,6 @@ export const metadata: Metadata = {
     images: ["/images/hero1.png"],
     creator: "@evonmedics",
   },
-  verification: {
-    google: "your-google-site-verification-code",
-  },
   category: "Healthcare Technology",
   classification: "Medical Technology Company",
   other: {
@@ -68,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${UberMove.className} ${SFPro.className} antialiased`}>
-        {/* <Cursor /> */}
+        <Cursor />
         {children}
         <Footer />
       </body>

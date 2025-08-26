@@ -159,27 +159,20 @@ function Header({ variant }: HeaderProps) {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Update scrolled state for styling
       setIsScrolled(currentScrollY > 50);
       
-      // Header visibility logic - only apply dynamic behavior on home page (default variant)
       if (variant === "default") {
         if (currentScrollY < 50) {
-          // Always show header at the top
           setIsVisible(true);
         } else if (currentScrollY > lastScrollY) {
-          // Scrolling down - hide header
           setIsVisible(false);
-          // Close mobile menu if open
           setIsMenuOpen(false);
         } else if (currentScrollY < lastScrollY) {
-          // Scrolling up - show header
           setIsVisible(true);
         }
         
         setLastScrollY(currentScrollY);
       } else {
-        // For non-home pages, always keep header visible
         setIsVisible(true);
       }
     };
@@ -188,13 +181,11 @@ function Header({ variant }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY, variant]);
 
-  // Dynamic styling based on variant and scroll position
   const getHeaderStyles = () => {
     if (variant === "secondary") {
       return "bg-white border-b-[1.5px] border-gray-200";
     }
     
-    // Default variant (landing page)
     if (isScrolled) {
       return "bg-black/50 backdrop-blur-md shadow-lg";
     }
@@ -207,7 +198,6 @@ function Header({ variant }: HeaderProps) {
       return "text-gray-700";
     }
     
-    // Default variant
     if (isScrolled) {
       return "text-white";
     }
@@ -215,72 +205,65 @@ function Header({ variant }: HeaderProps) {
     return "text-gray-200";
   };
 
-  // Get positioning classes based on variant
   const getPositionClasses = () => {
     if (variant === "default") {
-      // Home page - fixed with dynamic visibility
       return `fixed top-0 left-0 right-0 z-50 transform ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`;
     } else {
-      // Other pages - static positioning
       return "relative";
     }
   };
 
   return (
     <header
-      className={`main-padding flex items-center justify-between py-4 ${
-        UberMove.className
-      } ${getHeaderStyles()} ${getPositionClasses()} transition-all duration-300 ease-in-out`}
+      className={`main-padding ${getHeaderStyles()} ${getPositionClasses()} transition-all duration-300 ease-in-out`}
     >
-      <Link href="/">
-        <div className="w-32 md:w-40 lg:w-48 relative h-10 md:h-12 lg:h-14">
-          <Image 
-            src="/logo.svg" 
-            alt="EvonMedics' Official Logo" 
-            fill 
-            className={`transition-all duration-300 ${
-              variant === "default" && isScrolled ? "brightness-0 invert" : ""
-            }`}
-          />
-        </div>
-      </Link>
+      <div className={`max-w-7xl mx-auto flex items-center justify-between py-4 ${UberMove.className}`}>
+        <Link href="/">
+          <div className="w-32 md:w-40 lg:w-48 relative h-10 md:h-12 lg:h-14">
+            <Image 
+              src="/logo.svg" 
+              alt="EvonMedics' Official Logo" 
+              fill 
+              className={`transition-all duration-300 ${
+                variant === "default" && isScrolled ? "brightness-0 invert" : ""
+              }`}
+            />
+          </div>
+        </Link>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden lg:block">
-        <ul
-          className={`flex space-x-8 lg:space-x-16 ${getTextStyles()} transition-colors duration-300`}
+        <nav className="hidden lg:block">
+          <ul
+            className={`flex space-x-8 lg:space-x-16 ${getTextStyles()} transition-colors duration-300`}
+          >
+            <li>
+              <NavLink href="/about-us">About Us</NavLink>
+            </li>
+            <li>
+              <NavLink href="/about">Products</NavLink>
+            </li>
+            <li>
+              <NavLink href="/services">Investors</NavLink>
+            </li>
+            <li>
+              <NavLink href="/blog">Blog</NavLink>
+            </li>
+            <li>
+              <NavLink href="/contact">Careers</NavLink>
+            </li>
+          </ul>
+        </nav>
+
+        <Button className="hidden lg:block bg-blue-500 hover:bg-blue-600 transition-colors duration-300">
+          CONTACT US
+        </Button>
+
+        <button
+          onClick={toggleMenu}
+          className={`lg:hidden p-2 ${getTextStyles()} transition-colors duration-300`}
+          aria-label="Toggle menu"
         >
-          <li>
-            <NavLink href="/about-us">About Us</NavLink>
-          </li>
-          <li>
-            <NavLink href="/about">Products</NavLink>
-          </li>
-          <li>
-            <NavLink href="/services">Investors</NavLink>
-          </li>
-          <li>
-            <NavLink href="/blog">Blog</NavLink>
-          </li>
-          <li>
-            <NavLink href="/contact">Careers</NavLink>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Desktop Contact Button */}
-      <Button className="hidden lg:block bg-blue-500 hover:bg-blue-600 transition-colors duration-300">
-        CONTACT US
-      </Button>
-
-      {/* Mobile Menu Button */}
-      <button
-        onClick={toggleMenu}
-        className={`lg:hidden p-2 ${getTextStyles()} transition-colors duration-300`}
-        aria-label="Toggle menu"
-      >
         <svg
           className="w-6 h-6"
           fill="none"
@@ -297,8 +280,8 @@ function Header({ variant }: HeaderProps) {
           )}
         </svg>
       </button>
+      </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className={`absolute top-full left-0 right-0 shadow-lg border-t lg:hidden z-50 transition-all duration-300 ${
           variant === "default" && isScrolled 

@@ -8,7 +8,8 @@ import { Tag } from "../global";
 export default function Careers() {
   return (
     <section className="w-full relative">
-      <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
         <div className="relative order-2 md:order-1 min-h-[300px] md:min-h-[500px] lg:min-h-[600px] flex-[1.25] w-full">
           <Image
             src="/images/join us.png"
@@ -35,6 +36,7 @@ export default function Careers() {
           >
             Apply Now
           </Link>
+        </div>
         </div>
       </div>
     </section>

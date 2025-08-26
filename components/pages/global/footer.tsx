@@ -58,8 +58,9 @@ export default function Footer() {
 
   return (
     <footer className="bg-black text-gray-300 py-12 md:py-16">
-      <div className="main-padding mx-auto">
-        <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
+      <div className="main-padding">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
           {/* Newsletter Section */}
           <div className="lg:col-span-5 space-y-6 md:space-y-8">
             <Image
@@ -131,6 +132,7 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>

@@ -86,6 +86,22 @@
   .category-tag:hover {
     background-color: #DBEAFE;
   }
+
+  /* Timeline animations */
+  .animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Timeline item hover effects */
+  .timeline-item:hover .timeline-dot {
+    transform: scale(1.25);
+  }
+
+  /* Smooth scrolling for timeline */
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @theme inline {

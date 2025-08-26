@@ -81,7 +81,8 @@ function Hero() {
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 to-black/50" />
                 <div className="absolute inset-0 main-padding mx-auto pt-[15vh] md:pt-[20vh] lg:pt-[28vh]">
-                  <div className="w-full md:w-[65%] lg:w-[45%] flex flex-col gap-3 md:gap-4">
+                  <div className="max-w-7xl mx-auto">
+                    <div className="w-full md:w-[65%] lg:w-[45%] flex flex-col gap-3 md:gap-4">
                     <p className="top-heading">{item.title}</p>
                     <p className="w-full md:w-4/5 subtitle">{item.subtitle}</p>
                     <Button
@@ -90,6 +91,7 @@ function Hero() {
                     >
                       READ MORE
                     </Button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -98,7 +100,8 @@ function Hero() {
         </CarouselContent>
         {/* Carousel indicators - hidden on mobile, shown on tablet+ */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 main-padding w-full hidden md:block">
-          <div className="flex space-x-4 lg:space-x-8 w-full py-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex space-x-4 lg:space-x-8 w-full py-4">
             {Array.from(carouselItems.keys()).map((i) => (
               <CarouselSection
                 active={i === index}
@@ -107,6 +110,7 @@ function Hero() {
                 setIndex={setIndex}
               />
             ))}
+            </div>
           </div>
         </div>
 

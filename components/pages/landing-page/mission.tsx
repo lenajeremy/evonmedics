@@ -172,7 +172,8 @@ function Mission() {
           className="md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px]"
         />
       </div>
-      <div className="flex flex-col lg:flex-row gap-8 md:gap-16 lg:gap-24 items-center">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-16 lg:gap-24 items-center">
         <div className="flex flex-col gap-6 md:gap-8 lg:gap-12 flex-1 lg:flex-[1.2] items-start order-2 lg:order-1">
           <Tag text="MISSION" />
           <h1
@@ -228,6 +229,7 @@ function Mission() {
             className="h-[300px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-2xl lg:rounded-3xl"
             priority
           />
+        </div>
         </div>
       </div>
     </section>
