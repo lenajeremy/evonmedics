@@ -550,13 +550,12 @@ const AboutUsPage = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Dr. Sarah Johnson */}
                 <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-transparent hover:border-gray-200">
                   <div className="relative text-center space-y-4">
                     <div className="relative mx-auto">
                       <Image
                         src="/images/1.avif"
-                        alt="Dr. Sarah Johnson, Chief Executive Officer"
+                        alt="Dr. Evaristus Nwulia, Chief Executive Officer"
                         width={300}
                         height={300}
                         className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto ring-4 ring-transparent group-hover:ring-gray-300 transition-all duration-500"
@@ -564,9 +563,9 @@ const AboutUsPage = () => {
                     </div>
                     <div className="space-y-2">
                       <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Dr. Sarah Johnson</h4>
-                      <p className="font-semibold text-gray-700">Chief Executive Officer</p>
+                      <p className="font-semibold text-gray-700">Dr. Evaristus Nwulia</p>
                       <p className="text-gray-600 text-sm px-4 transition-colors duration-300">
-                        Leading neurologist with 20+ years pioneering neurotechnology innovations
+                        Co-Founder/Chief Scientific Officer
                       </p>
                     </div>
                   </div>
@@ -614,6 +613,105 @@ const AboutUsPage = () => {
                       </p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Careers Section */}
+          <section className="main-padding py-20 lg:py-32 bg-gray-50">
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-12">
+                <div className="space-y-6">
+                  <h2 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
+                    Join us if you love to imagine the future
+                  </h2>
+                  <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
+                    While knowledge gives us the foundation to build, it's imagination that lights the way forward. If you enjoy crafting tools that transform the status quo, we'd love to talk.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Web Designer */}
+                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
+                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
+                      Web Designer
+                    </span>
+                    <svg 
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+
+                  {/* Junior Design Engineer */}
+                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
+                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
+                      Junior Design Engineer
+                    </span>
+                    <svg 
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+
+                  {/* Senior Design Engineer */}
+                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
+                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
+                      Senior Design Engineer
+                    </span>
+                    <svg 
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+
+                  {/* Junior Product Engineer */}
+                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
+                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
+                      Junior Product Engineer
+                    </span>
+                    <svg 
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+
+                  {/* Senior Product Engineer */}
+                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
+                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
+                      Senior Product Engineer
+                    </span>
+                    <svg 
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="pt-8">
+                  <p className="text-gray-500 text-base">
+                    Can't find your role? <button className="text-black underline font-medium hover:no-underline transition-all duration-200">Open application</button>
+                  </p>
                 </div>
               </div>
             </div>
