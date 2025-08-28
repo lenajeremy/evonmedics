@@ -127,7 +127,7 @@ export default async function BlogPostPage({ params }: BlogPostParams) {
 
   return (
     <>
-      <Header />
+      <Header variant="secondary" />
       <main className="min-h-screen pb-20 main-padding">
         <BlogPost
           title={post.title}

@@ -353,7 +353,7 @@ const AboutUsPage = () => {
                             NIH HEAL Initiative Award
                           </h3>
                           <p className="text-gray-300 leading-relaxed mb-4">
-                            Awarded funding for the development and evaluation of our Computerized Chemosensory-Based Orbitofrontal Networks Training for Treatment of Pain (CBOT-P). This award is funded through the NIH HEAL initiative and sponsored by NINDS.
+                            Awarded funding for the development and evaluation of our Computerized Chemosensory-Based Orbitofrontal Networks Training for Treatment of Pain (COT). This award is funded through the NIH HEAL initiative and sponsored by NINDS.
                           </p>
 
                           <div className="flex items-center gap-2 text-sm text-blue-400">
@@ -562,54 +562,54 @@ const AboutUsPage = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Dr. Sarah Johnson</h4>
-                      <p className="font-semibold text-gray-700">Dr. Evaristus Nwulia</p>
+                      <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Dr. Evaristus Nwulia</h4>
+                      <p className="font-semibold text-gray-700">Co-Founder/Chief Scientific Officer</p>
                       <p className="text-gray-600 text-sm px-4 transition-colors duration-300">
-                        Co-Founder/Chief Scientific Officer
+                        Dr. Evaristus Nwulia is the Chief Executive Officer of EvON Medics, LLC.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Dr. Michael Chen */}
+                {/* Mr. Charles Nwaokobia */}
                 <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-transparent hover:border-gray-200">
                   <div className="relative text-center space-y-4">
                     <div className="relative mx-auto">
                       <Image
                         src="/images/2.avif"
-                        alt="Dr. Michael Chen, Chief Technology Officer"
+                        alt="Mr. Charles Nwaokobi, President"
                         width={300}
                         height={300}
                         className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto ring-4 ring-transparent group-hover:ring-gray-300 transition-all duration-500"
                       />
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Dr. Michael Chen</h4>
-                      <p className="font-semibold text-gray-700">Chief Technology Officer</p>
+                      <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Mr. Charles Nwaokobia</h4>
+                      <p className="font-semibold text-gray-700">President</p>
                       <p className="text-gray-600 text-sm px-4 transition-colors duration-300">
-                        Biomedical engineer specializing in neural interface technologies
+                        Mr. Charles Nwaokobia is the President of EvON Medics, LLC.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Dr. Emily Rodriguez */}
+                {/* Mrs. Isioma Udeozo */}
                 <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-transparent hover:border-gray-200">
                   <div className="relative text-center space-y-4">
                     <div className="relative mx-auto">
                       <Image
                         src="/images/3.avif"
-                        alt="Dr. Emily Rodriguez, Chief Medical Officer"
+                        alt="Mrs. Isioma Udeozo"
                         width={300}
                         height={300}
                         className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto ring-4 ring-transparent group-hover:ring-gray-300 transition-all duration-500"
                       />
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Dr. Emily Rodriguez</h4>
-                      <p className="font-semibold text-gray-700">Chief Medical Officer</p>
+                      <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300">Mrs. Isioma Udeozo</h4>
+                      <p className="font-semibold text-gray-700">Managing Director, EvonMedics, Nigeria</p>
                       <p className="text-gray-600 text-sm px-4 transition-colors duration-300">
-                        Clinical specialist focused on innovative treatment approaches
+                        Mrs. Isioma Udeozo is the Managing Director of EvON Medics, Nigeria.
                       </p>
                     </div>
                   </div>
@@ -637,10 +637,10 @@ const AboutUsPage = () => {
                     <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
                       Web Designer
                     </span>
-                    <svg 
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -652,10 +652,10 @@ const AboutUsPage = () => {
                     <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
                       Junior Design Engineer
                     </span>
-                    <svg 
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -667,10 +667,10 @@ const AboutUsPage = () => {
                     <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
                       Senior Design Engineer
                     </span>
-                    <svg 
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -682,10 +682,10 @@ const AboutUsPage = () => {
                     <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
                       Junior Product Engineer
                     </span>
-                    <svg 
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -697,10 +697,10 @@ const AboutUsPage = () => {
                     <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
                       Senior Product Engineer
                     </span>
-                    <svg 
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

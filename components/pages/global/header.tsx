@@ -156,7 +156,7 @@ const ProductsDropdown = ({ isVisible, onMouseLeave }: { isVisible: boolean; onM
               transitionDelay: isVisible ? '0ms' : '0ms',
               transition: 'all 500ms ease-out'
             }}>
-            <Link href="/products/cbot-p" className="flex items-start space-x-4">
+            <a href="/products/cot" className="flex items-start space-x-4">
               <div className="w-9 h-9 bg-gradient-to-br from-purple-400 to-blue-500 rounded-md flex items-center justify-center flex-shrink-0">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547z" />
@@ -164,13 +164,13 @@ const ProductsDropdown = ({ isVisible, onMouseLeave }: { isVisible: boolean; onM
               </div>
               <div className="flex-1">
                 <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
-                  CBOT-P
+                  COT
                 </h4>
                 <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
                   Computerized Chemosensory-Based Orbitofrontal Networks Training for Treatment of Pain
                 </p>
               </div>
-            </Link>
+            </a>
           </div>
 
           <div className={`group cursor-pointer px-6 py-6 hover:bg-gray-50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -178,7 +178,7 @@ const ProductsDropdown = ({ isVisible, onMouseLeave }: { isVisible: boolean; onM
               transitionDelay: isVisible ? '0ms' : '0ms',
               transition: 'all 500ms ease-out'
             }}>
-            <Link href="/products/ddt" className="flex items-start space-x-4">
+            <a href="/products/ddt" className="flex items-start space-x-4">
               <div className="flex items-start space-x-3">
                 <div className="w-9 h-9 bg-gradient-to-br from-green-400 to-teal-500 rounded-md flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,30 +194,32 @@ const ProductsDropdown = ({ isVisible, onMouseLeave }: { isVisible: boolean; onM
                   </p>
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
 
-          {/* AI Analytics */}
+          {/* CBOT-P */}
           <div className={`group cursor-pointer px-6 py-6 hover:bg-gray-50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`} style={{
               transitionDelay: isVisible ? '200ms' : '0ms',
               transition: 'all 500ms ease-out'
             }}>
-            <div className="flex items-start space-x-3">
-              <div className="w-9 h-9 bg-gradient-to-br from-pink-400 to-purple-500 rounded-md flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+            <a href="/products/cbot-p" className="flex items-start space-x-4">
+              <div className="flex items-start space-x-3">
+                <div className="w-9 h-9 bg-gradient-to-br from-pink-400 to-purple-500 rounded-md flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
+                    CBOT-P
+                  </h4>
+                  <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
+                    Machine learning algorithms for treatment optimization and patient care
+                  </p>
+                </div>
               </div>
-              <div className="flex-1">
-                <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
-                  AI Analytics
-                </h4>
-                <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
-                  Machine learning algorithms for treatment optimization and patient care
-                </p>
-              </div>
-            </div>
+            </a>
           </div>
 
           {/* Clinical Trials */}
@@ -243,27 +245,36 @@ const ProductsDropdown = ({ isVisible, onMouseLeave }: { isVisible: boolean; onM
             </div>
           </div>
 
-          {/* Academic Partnerships */}
+          {/* Research and Development */}
           <div className={`group cursor-pointer px-6 py-6 hover:bg-gray-50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`} style={{
               transitionDelay: isVisible ? '400ms' : '0ms',
               transition: 'all 500ms ease-out'
             }}>
-            <div className="flex items-start space-x-3">
-              <div className="w-9 h-9 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-md flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
+            <a href="/about-us/research-and-development" className="flex items-start space-x-4">
+              <div className="flex items-start space-x-3">
+                <div className="w-9 h-9 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-md flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {/* Scientist icon: lab flask and glasses */}
+                    <circle cx="12" cy="7" r="2" stroke="currentColor" strokeWidth={2} />
+                    <rect x="9" y="13" width="6" height="6" rx="3" stroke="currentColor" strokeWidth={2} />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 15v-2a4 4 0 1 1 8 0v2" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19h4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10" />
+                    {/* Flask */}
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 3v4.5l3.5 7.5a2 2 0 0 1-1.8 2.8H7.3a2 2 0 0 1-1.8-2.8L9 7.5V3" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
+                    Research and Development
+                  </h4>
+                  <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
+                    Research and development of our products and services
+                  </p>
+                </div>
               </div>
-              <div className="flex-1">
-                <h4 className={`font-semibold text-gray-900 text-lg ${SFPro.className}`}>
-                  Academic Partnerships
-                </h4>
-                <p className={`${SFPro.className} font-normal text-gray-600 mt-0.5 leading-relaxed text-base`}>
-                  Collaborations with leading research institutions worldwide
-                </p>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -351,7 +362,7 @@ function Header({ variant, className }: HeaderProps) {
       className={`main-padding ${getHeaderStyles()} ${getPositionClasses()} transition-all duration-300 ease-in-out ${className}`}
     >
       <div className={`max-w-7xl mx-auto flex items-center justify-between py-4 ${UberMove.className}`}>
-        <Link href="/">
+        <a href="/">
           <div className="w-32 md:w-40 lg:w-48 relative h-10 md:h-12 lg:h-14">
             <Image
               src="/logo.svg"
@@ -361,7 +372,7 @@ function Header({ variant, className }: HeaderProps) {
                 }`}
             />
           </div>
-        </Link>
+        </a>
 
         <nav className="hidden lg:block">
           <ul
@@ -392,7 +403,7 @@ function Header({ variant, className }: HeaderProps) {
               <NavLink href="/blog">Blog</NavLink>
             </li>
             <li>
-              <NavLink href="/contact">Careers</NavLink>
+              <NavLink href="/careers">Careers</NavLink>
             </li>
           </ul>
         </nav>
@@ -432,54 +443,54 @@ function Header({ variant, className }: HeaderProps) {
           <nav className="main-padding py-4">
             <ul className="space-y-4">
               <li>
-                <Link
+                <a
                   href="/about-us"
                   className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
                     }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About Us
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   href="/about"
                   className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
                     }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Products
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   href="/services"
                   className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
                     }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Investors
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   href="/blog"
                   className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
                     }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Blog
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   href="/contact"
                   className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
                     }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Careers
-                </Link>
+                </a>
               </li>
               <li className="pt-4">
                 <Button
