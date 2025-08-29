@@ -38,7 +38,16 @@ export default function Home() {
         <Header variant="default" />
         <Hero />
         <Mission />
-        <ProductsAndServices />
+        <ProductsAndServices items={[
+          { text: "alzheimers", image: "/images/hero5.jpg" },
+          { text: "chronicpain", image: "/images/hero2.jpg" },
+          { text: "addictiontreatment", image: "/images/hero3.jpg" }]}
+          defaultImage={"/images/2.avif"} flip={true} />
+        <ProductsAndServices items={[
+          { text: "alzheimers", image: "/images/hero5.jpg" },
+          { text: "chronicpain", image: "/images/hero2.jpg" },
+          { text: "addictiontreatment", image: "/images/hero3.jpg" }]}
+          defaultImage={"/images/2.avif"} />
         <VideoDisplay />
         <Careers />
       </div>

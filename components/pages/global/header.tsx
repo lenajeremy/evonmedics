@@ -363,7 +363,7 @@ function Header({ variant, className }: HeaderProps) {
     >
       <div className={`max-w-7xl mx-auto flex items-center justify-between py-4 ${UberMove.className}`}>
         <a href="/">
-          <div className="w-32 md:w-40 lg:w-48 relative h-10 md:h-12 lg:h-14">
+          <div className="w-32 md:w-40 lg:w-54 relative h-10 md:h-12 lg:h-14">
             <Image
               src="/logo.svg"
               alt="EvonMedics' Official Logo"
@@ -396,9 +396,9 @@ function Header({ variant, className }: HeaderProps) {
                 onMouseLeave={() => setIsProductsDropdownVisible(false)}
               />
             </li>
-            <li>
+            {/* <li>
               <NavLink href="/services">Investors</NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink href="/blog">Blog</NavLink>
             </li>
@@ -462,7 +462,7 @@ function Header({ variant, className }: HeaderProps) {
                   Products
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/services"
                   className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
@@ -471,7 +471,7 @@ function Header({ variant, className }: HeaderProps) {
                 >
                   Investors
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/blog"

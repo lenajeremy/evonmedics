@@ -82,12 +82,14 @@ const ListItem = ({
   text,
   onHover,
   onLeave,
+  image,
 }: {
   isLast?: boolean;
   index: number;
   text: string;
   onHover?: () => void;
   onLeave?: () => void;
+  image?: string;
 }) => (
   <Link
     href="/"
@@ -122,114 +124,102 @@ const ListItem = ({
   </Link>
 );
 
-export default function ProductAndServices() {
-  const [currentText, setCurrentText] = useState("default");
+
+const textVariants = {
+  default: {
+    text: "Passionate about innovation, we constantly strive to create new products incorporating cutting-edge technologies to provide cure for:",
+    highlights: ["innovation", "cutting-edge"],
+    title: "Welcome to EvonMedics"
+  },
+  alzheimers: {
+    text: "Our innovative neurotechnology targets early-stage Alzheimer's, utilizing cutting-edge brain stimulation to enhance cognitive function.",
+    highlights: ["innovative", "cutting-edge", "neurotechnology"
+    ],
+    title: "Alzheimers"
+  },
+  chronicpain: {
+    text: "Advanced pain management solutions combining innovative nerve therapy with cutting-edge sensor technology for precise treatment.",
+    highlights: ["innovative", "cutting-edge"],
+    title: "Chronic Pain"
+  },
+  addictiontreatment: {
+    text: "Revolutionary addiction treatment using innovative neurofeedback and cutting-edge behavioral modification technologies.",
+    highlights: ["innovative", "cutting-edge"],
+    title: "Addiction Treatment"
+  },
+};
+
+export default function ProductAndServices({ items, defaultImage, flip = false }: {
+  items: Array<{
+    text: keyof typeof textVariants;
+    image: string;
+  }>,
+  defaultImage: string,
+  flip?: boolean
+}) {
   const [currentText2, setCurrentText2] = useState("default");
-  const [animationKey, setAnimationKey] = useState(0);
   const [animationKey2, setAnimationKey2] = useState(0);
 
-  const textVariants = {
-    default: {
-      text: "Passionate about innovation, we constantly strive to create new products incorporating cutting-edge technologies to provide cure for:",
-      highlights: ["innovation", "cutting-edge"],
-    },
-    alzheimers: {
-      text: "Our innovative neurotechnology targets early-stage Alzheimer's, utilizing cutting-edge brain stimulation to enhance cognitive function.",
-      highlights: ["innovative", "cutting-edge"],
-    },
-    chronicpain: {
-      text: "Advanced pain management solutions combining innovative nerve therapy with cutting-edge sensor technology for precise treatment.",
-      highlights: ["innovative", "cutting-edge"],
-    },
-    addictiontreatment: {
-      text: "Revolutionary addiction treatment using innovative neurofeedback and cutting-edge behavioral modification technologies.",
-      highlights: ["innovative", "cutting-edge"],
-    },
-  };
-
-  // Handle hover events
-  const handleHover = (text: string) => {
-    setCurrentText(text);
-    setAnimationKey(prev => prev + 1);
-  };
-
-  // Handle hover leave
-  const handleLeave = () => {
-    setCurrentText("default");
-    setAnimationKey(prev => prev + 1);
-  };
 
   // Handle hover events for second section
-  const handleHover2 = (text: string) => {
+  const handleHover2 = (text: string, image: string) => {
+    animate(image)
     setCurrentText2(text);
     setAnimationKey2(prev => prev + 1);
   };
 
   // Handle hover leave for second section
   const handleLeave2 = () => {
+    revAnimate()
     setCurrentText2("default");
     setAnimationKey2(prev => prev + 1);
   };
+
+  const newImage = useRef<HTMLImageElement>(null);
+  const currImage = useRef<HTMLImageElement>(null);
+
+  const animate = (image: string) => {
+    if (newImage.current) {
+      newImage.current.src = image;
+    }
+
+    gsap.to(currImage.current, { scaleY: 0.5, transformOrigin: 'top left', clipPath: 'circle(0px at top left)', duration: 1, ease: "power2.out" });
+    gsap.to(newImage.current, { scale: 1, duration: 1, ease: "power2.out" });
+  }
+
+
+
+  const revAnimate = () => {
+    gsap.to(currImage.current, { scaleY: 1, clipPath: 'circle(1000px at top left)', duration: 1, ease: "power2.out" });
+    gsap.to(newImage.current, { scale: 1.5, duration: 1, ease: "power2.out" });
+  }
 
   return (
     <section className="main-padding py-8 md:py-12 lg:py-16">
       <div className="max-w-7xl mx-auto flex flex-col gap-8 md:gap-12 lg:gap-16">
         <div className="flex flex-col gap-16 md:gap-24 lg:gap-32">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
-            <div className="flex-1 order-2 lg:order-1">
-              <Image
-                src={"/images/granny.png"}
-                alt="White Grandma"
-                width={700}
-                height={700}
-                className="h-[400px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-lg"
-              />
-            </div>
-            <div className="flex flex-col gap-6 lg:gap-8 flex-1 lg:flex-[1.2] items-start order-1 lg:order-2">
-              <Tag text="OUR PRODUCTS" />
-              <div className="space-y-8 md:space-y-12 lg:space-y-16 pr-0 lg:pr-16">
-                <AnimatedText
-                  key={animationKey}
-                  text={textVariants[currentText as keyof typeof textVariants].text}
-                  highlights={textVariants[currentText as keyof typeof textVariants].highlights}
-                  className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed lg:leading-12 tracking-tight"
+            <div className={`flex-1 order-2 ${flip ? "lg:order-1" : "lg:order-2"}`}>
+              <div className="h-[400px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] rounded-lg relative overflow-hidden">
+                <img
+                  src={defaultImage}
+                  alt="White Grandma"
+                  width={1500}
+                  height={1500}
+                  className="h-[400px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-lg absolute inset-0"
+                  ref={newImage}
+                  id='newImage'
                 />
-                <div>
-                  <ListItem
-                    index={1}
-                    text="Alzheimers"
-                    onHover={() => handleHover("alzheimers")}
-                    onLeave={handleLeave}
-                  />
-                  <ListItem
-                    index={2}
-                    text="Chronic Pain"
-                    onHover={() => handleHover("chronicpain")}
-                    onLeave={handleLeave}
-                  />
-                  <ListItem
-                    index={3}
-                    isLast
-                    text="Addiction Treatment"
-                    onHover={() => handleHover("addictiontreatment")}
-                    onLeave={handleLeave}
-                  />
-                </div>
+                <img
+                  id='currImage'
+                  src={defaultImage}
+                  alt="White Grandma"
+                  width={1500}
+                  height={1500}
+                  className="h-[400px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-lg absolute inset-0"
+                  ref={currImage}
+                />
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-16 md:gap-24 lg:gap-32">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
-            <div className="flex-1 order-2 lg:order-2">
-              <Image
-                src={"/images/granny.png"}
-                alt="White Grandma"
-                width={700}
-                height={700}
-                className="h-[400px] md:h-[500px] lg:h-[700px] w-full lg:w-[600px] object-cover rounded-lg"
-              />
             </div>
             <div className="flex flex-col gap-6 lg:gap-8 flex-1 lg:flex-[1.2] items-start order-1 lg:order-1">
               <Tag text="OUR SERVICES" />
@@ -241,25 +231,18 @@ export default function ProductAndServices() {
                   className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed lg:leading-12 tracking-tight"
                 />
                 <div>
-                  <ListItem
-                    index={1}
-                    text="Alzheimers"
-                    onHover={() => handleHover2("alzheimers")}
-                    onLeave={handleLeave2}
-                  />
-                  <ListItem
-                    index={2}
-                    text="Chronic Pain"
-                    onHover={() => handleHover2("chronicpain")}
-                    onLeave={handleLeave2}
-                  />
-                  <ListItem
-                    index={3}
-                    isLast
-                    text="Addiction Treatment"
-                    onHover={() => handleHover2("addictiontreatment")}
-                    onLeave={handleLeave2}
-                  />
+                  {
+                    items.map((item, index) => (
+                      <ListItem
+                        index={index}
+                        key={item.text}
+                        isLast={index === items.length - 1}
+                        text={textVariants[item.text as keyof typeof textVariants].title}
+                        onHover={() => handleHover2(item.text, item.image)}
+                        onLeave={handleLeave2}
+                      />
+                    ))
+                  }
                 </div>
               </div>
             </div>
