@@ -40,9 +40,9 @@ const footerLinks = {
   getInTouch: {
     title: "Get In Touch",
     links: [
-      { label: "Instagram", href: "https://instagram.com/evonmedics" },
-      { label: "LinkedIn", href: "https://linkedin.com/company/evonmedics" },
-      { label: "Facebook", href: "https://facebook.com/evonmedics" },
+      { label: "X (formerly Instagram)", href: "https://x.com/evonmedics" },
+      { label: "LinkedIn", href: "https://linkedin.com/company/evonmedics-llc" },
+      { label: "Facebook", href: "https://web.facebook.com/profile.php?id=100076335930141" },
       { label: "Contact Us", href: "/contact" },
     ],
     address:
