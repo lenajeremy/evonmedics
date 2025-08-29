@@ -620,98 +620,27 @@ const AboutUsPage = () => {
 
           {/* Careers Section */}
           <section className="main-padding py-20 lg:py-32 bg-gray-50">
-            <div className="max-w-4xl mx-auto">
-              <div className="space-y-12">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="space-y-8">
                 <div className="space-y-6">
                   <h2 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
                     Join us if you love to imagine the future
                   </h2>
-                  <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
+                  <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
                     While knowledge gives us the foundation to build, it's imagination that lights the way forward. If you enjoy crafting tools that transform the status quo, we'd love to talk.
                   </p>
                 </div>
 
-                <div className="space-y-4">
-                  {/* Web Designer */}
-                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
-                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
-                      Web Designer
-                    </span>
-                    <svg
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-
-                  {/* Junior Design Engineer */}
-                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
-                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
-                      Junior Design Engineer
-                    </span>
-                    <svg
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-
-                  {/* Senior Design Engineer */}
-                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
-                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
-                      Senior Design Engineer
-                    </span>
-                    <svg
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-
-                  {/* Junior Product Engineer */}
-                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
-                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
-                      Junior Product Engineer
-                    </span>
-                    <svg
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-
-                  {/* Senior Product Engineer */}
-                  <div className="group flex items-center justify-between py-6 border-b border-gray-200 hover:border-gray-300 transition-colors duration-200">
-                    <span className="text-lg lg:text-xl font-medium text-black group-hover:text-gray-700 transition-colors duration-200">
-                      Senior Product Engineer
-                    </span>
-                    <svg
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-
                 <div className="pt-8">
-                  <p className="text-gray-500 text-base">
-                    Can't find your role? <button className="text-black underline font-medium hover:no-underline transition-all duration-200">Open application</button>
-                  </p>
+                  <a 
+                    href="/careers" 
+                    className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
+                  >
+                    View Open Positions
+                    <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>

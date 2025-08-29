@@ -405,9 +405,7 @@ function Header({ variant, className }: HeaderProps) {
             <li>
               <NavLink href="/careers">Careers</NavLink>
             </li>
-            <li>
-              <NavLink href="/contact">Contact</NavLink>
-            </li>
+            
           </ul>
         </nav>
 

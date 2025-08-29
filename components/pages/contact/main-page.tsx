@@ -101,7 +101,7 @@ const ContactUsPage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                 {/* Offices */}
-                <div 
+                <div
                   ref={(el) => addTimelineRef(el, 0)}
                   className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 opacity-0 translate-y-8"
                 >
@@ -115,7 +115,7 @@ const ContactUsPage = () => {
                       Offices
                     </h3>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <div className="text-center">
                       <h4 className={`text-lg font-semibold text-gray-800 mb-2 ${SFPro.className}`}>
@@ -130,7 +130,7 @@ const ContactUsPage = () => {
                 </div>
 
                 {/* Contact Form */}
-                <div 
+                <div
                   ref={(el) => addTimelineRef(el, 1)}
                   className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 opacity-0 translate-y-8"
                 >
@@ -144,17 +144,17 @@ const ContactUsPage = () => {
                       Want to Work With Us?
                     </h3>
                   </div>
-                  
+
                   <div className="text-center">
                     <p className="text-gray-600 mb-6">
                       EvON Medics team will contact you within 3 business days after receiving an inquiry.
                     </p>
-                    
+
                     <div className="space-y-4">
                       <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105">
                         Get In Touch
                       </Button>
-                      
+
                       <p className="text-sm text-gray-500">
                         Or email us directly at{" "}
                         <a href="mailto:info@evonmedics.com" className="text-blue-600 hover:text-blue-700 font-medium">
@@ -172,7 +172,7 @@ const ContactUsPage = () => {
           <section className="main-padding py-16 lg:py-20 bg-gray-50">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-                <div 
+                <div
                   ref={(el) => addTimelineRef(el, 2)}
                   className="text-center opacity-0 translate-y-8"
                 >
@@ -189,7 +189,7 @@ const ContactUsPage = () => {
                   </p>
                 </div>
 
-                <div 
+                <div
                   ref={(el) => addTimelineRef(el, 3)}
                   className="text-center opacity-0 translate-y-8"
                 >
@@ -206,7 +206,7 @@ const ContactUsPage = () => {
                   </p>
                 </div>
 
-                <div 
+                <div
                   ref={(el) => addTimelineRef(el, 4)}
                   className="text-center opacity-0 translate-y-8"
                 >
@@ -226,7 +226,6 @@ const ContactUsPage = () => {
             </div>
           </section>
         </main>
-        <Footer />
       </div>
     </SmoothScroll>
   );
