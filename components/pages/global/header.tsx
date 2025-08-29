@@ -405,12 +405,17 @@ function Header({ variant, className }: HeaderProps) {
             <li>
               <NavLink href="/careers">Careers</NavLink>
             </li>
+            <li>
+              <NavLink href="/contact">Contact</NavLink>
+            </li>
           </ul>
         </nav>
 
-        <Button className="hidden lg:block bg-blue-500 hover:bg-blue-600 transition-colors duration-300">
-          CONTACT US
-        </Button>
+        <a href="/contact">
+          <Button className="hidden lg:block bg-blue-500 hover:bg-blue-600 transition-colors duration-300">
+            CONTACT US
+          </Button>
+        </a>
 
         <button
           onClick={toggleMenu}
@@ -484,7 +489,7 @@ function Header({ variant, className }: HeaderProps) {
               </li>
               <li>
                 <a
-                  href="/contact"
+                  href="/careers"
                   className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
                     }`}
                   onClick={() => setIsMenuOpen(false)}
@@ -492,12 +497,22 @@ function Header({ variant, className }: HeaderProps) {
                   Careers
                 </a>
               </li>
+              <li>
+                <a
+                  href="/contact"
+                  className={`block py-2 hover:text-blue-500 transition-colors duration-300 ${variant === "default" && isScrolled ? "text-white" : "text-gray-700"
+                    }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </a>
+              </li>
               <li className="pt-4">
                 <Button
                   className="w-full bg-blue-500 hover:bg-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  CONTACT US
+                  <a href="/contact" className="text-white">CONTACT US</a>
                 </Button>
               </li>
             </ul>
